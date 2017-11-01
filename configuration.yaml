@@ -87,6 +87,11 @@ logbook:
 # Enables a map showing the location of tracked devices
 map:
 
+mqtt:
+  broker: !secret mqtt_broker
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
 # Weather prediction
 sensor:
   - platform: yr
