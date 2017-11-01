@@ -1,3 +1,50 @@
+alarmdecoder:
+  device:
+    type: socket
+    host: 192.168.1.27
+    port: 10000
+  panel_display: On
+  zones:
+    #8:
+    #  name: Alarm Box
+    #  type: opening
+    #9:
+    #  name: Service Equipment
+    #  type: ????
+    10:
+      name: Garage Door
+      type: opening
+    11:
+      name: Front Door
+      type: opening
+    12:
+      name: Family Slider
+      type: opening
+    13:
+      name: Left Living Room Window
+      type: opening
+    14:
+      name: Right Living Room Window
+      type: opening
+    #15:
+    #  name: Upstairs Motion
+    #  type: motion
+    16:
+      name: Guest Room Window
+      type: opening
+    #17:
+    #  name: Stairway Smoke
+    #  type: smoke
+    18:
+      name: Bathroom Window
+      type: opening
+    19:
+      name: Office Window
+      type: opening
+    20:
+      name: Master Bedroom Window
+      type: opening
+
 # Enables configuration UI
 config:
 
