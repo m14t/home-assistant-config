@@ -34,3 +34,19 @@ kitchen:
   icon: mdi:silverware-variant
   entities:
     - light.rock_lamp
+
+nest:
+  name: Nest
+  icon: mdi:thermometer
+  entities:
+    - climate.downstairs
+    #- binary_sensor.downstairs_thermostat_fan
+    #- binary_sensor.downstairs_thermostat_has_leaf
+    #- binary_sensor.downstairs_thermostat_is_locked
+    #- binary_sensor.downstairs_thermostat_is_using_emergency_heat
+    #- binary_sensor.downstairs_thermostat_online
+    - sensor.downstairs_thermostat_humidity
+    - sensor.downstairs_thermostat_hvac_state
+    - sensor.downstairs_thermostat_operation_mode
+    #- sensor.downstairs_thermostat_target
+    - sensor.downstairs_thermostat_temperature

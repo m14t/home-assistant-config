@@ -113,6 +113,12 @@ mqtt:
   username: !secret mqtt_username
   password: !secret mqtt_password
 
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+  structure:
+    - 121 Thousand Oaks
+
 # Weather prediction
 sensor:
   - platform: mqtt
