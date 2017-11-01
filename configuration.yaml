@@ -139,6 +139,12 @@ sensor:
     unit_of_measurement: "°F"
     value_template: '{{ value_json.DS18B20.Temperature }}'
 
+  - platform: yweather
+    monitored_conditions:
+      - temperature
+    name: "Current Outside"
+    woeid: 12797392
+
   - platform: yr
 
 # Track the sun
