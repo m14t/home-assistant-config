@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: homeassistant/amd64-homeassistant:0.56.2
+    steps:
+      - checkout
+      - run:
+          name: Link directory
+          command: ln -s /root/project /root/.homeassistant
+      - run:
+          name: Create secrets.yaml file
+          command: cp .circleci/secrets.yaml .
+      - run:
+          name: Remove SSL keys from configuration.yaml
+          command: grep -v ssl_ configuration.yaml > configuration.yaml.tmp && mv configuration.yaml.tmp configuration.yaml
+      - run:
+          name: Check config
+          command: hass --script check_config
+
