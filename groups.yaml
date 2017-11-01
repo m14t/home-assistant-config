@@ -21,4 +21,11 @@ alarm:
     #- binary_sensor.upstairs_motion # 15
     #- binary_sensor.stairway_smoke # 17
 
+bedroom:
+  name: Bedroom
+  icon: mdi:thermometer
+  entities:
+    - fan.bedroom_fan
+    - sensor.bedroom_humidity
+    - sensor.bedroom_temperature
 

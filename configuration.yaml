@@ -54,6 +54,15 @@ conversation:
 # Discover some devices automatically
 discovery:
 
+fan:
+  - platform: mqtt
+    command_topic: "cmnd/bedroom-fan/POWER"
+    name: Bedroom Fan
+    speeds:
+      - off
+      - high
+    state_topic: "stat/bedroom-fan/POWER"
+
 # Enables the frontend
 frontend:
 
