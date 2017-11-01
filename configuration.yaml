@@ -94,6 +94,12 @@ mqtt:
 
 # Weather prediction
 sensor:
+  - platform: mqtt
+    state_topic: "tele/hot-tub/SENSOR"
+    name: "Hot Tub"
+    unit_of_measurement: "°F"
+    value_template: '{{ value_json.DS18B20.Temperature }}'
+
   - platform: yr
 
 # Track the sun
