@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: homeassistant/amd64-homeassistant:0.56.2
+    steps:
+      - checkout
+      - run:
+          name: Check config
+          command: hass --script check_config
+      - run:
+          name: Print the Current Time
+          command: date
+
