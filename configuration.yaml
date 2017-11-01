@@ -90,6 +90,12 @@ http:
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
 
+light:
+  - platform: mqtt
+    command_topic: "cmnd/rock-lamp/POWER"
+    name: Rock Lamp
+    state_topic: "stat/rock-lamp/POWER"
+
 # View all events in a logbook
 logbook:
 
