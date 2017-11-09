@@ -1,1 +1,10 @@
-[]
+- id: alarm_on_at_night
+  alias: Turn alarm on at night
+  trigger:
+    platform: time
+    at: '22:00:00'
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      data:
+        code: !secret alarm_master_code
+        entity_id: alarm_control_panel.alarm_panel
