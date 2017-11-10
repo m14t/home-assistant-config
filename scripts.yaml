@@ -1,0 +1,20 @@
+retropie_power_off:
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.receiver
+        source: dvd # Apple TV
+    - delay: 00:02:00
+    - service: switch.turn_off
+      data:
+        entity_id: switch.retropie_power
+
+retropie_power_on:
+  sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.retropie_power
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.receiver
+        source: video3 # RetroPie

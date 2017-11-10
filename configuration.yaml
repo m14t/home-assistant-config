@@ -171,6 +171,16 @@ sensor:
 # Track the sun
 sun:
 
+switch:
+  - platform: mqtt
+    command_topic: "cmnd/retropie-power/POWER"
+    name: RetroPie Power
+    payload_off: "OFF"
+    payload_on: "ON"
+    qos: 1
+    retain: true
+    state_topic: "stat/retropie-power/POWER"
+
 # Text to speech
 tts:
   - platform: google
