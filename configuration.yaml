@@ -108,6 +108,24 @@ logbook:
 # Enables a map showing the location of tracked devices
 map:
 
+media_player:
+  - platform: onkyo
+    host: 192.168.1.24
+    name: Receiver
+    sources:
+      dvd: Apple TV
+      video2: Roku
+      video3: RetroPie
+      video4: AUX
+      #video1: STB/DVR
+      #video6: PC
+      #phono: PHONO
+      #cd: DOCK
+      #fm: fm
+      #am: am
+      #usb: usb
+      #network: network
+
 mqtt:
   broker: !secret mqtt_broker
   username: !secret mqtt_username
