@@ -1,3 +1,6 @@
+alarm_control_panel:
+  - platform: arlo
+
 alarmdecoder:
   device:
     type: socket
@@ -44,6 +47,13 @@ alarmdecoder:
     20:
       name: Master Bedroom Window
       type: opening
+
+arlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
+
+camera:
+  - platform: arlo
 
 # Enables configuration UI
 config:
@@ -142,6 +152,8 @@ recorder:
 
 # Weather prediction
 sensor:
+  - platform: arlo
+
   - platform: mqtt
     state_topic: "tele/bedroom-fan/SENSOR"
     name: "Bedroom Humidity"
