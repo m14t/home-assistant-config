@@ -10,6 +10,8 @@ binary_sensor.downstairs_thermostat_online:
   hidden: true
 climate.downstairs:
   hidden: true
+script.power_cycle_onkyo:
+  can_cancel: false
 script.retropie_power_off:
   can_cancel: false
 script.retropie_power_on:

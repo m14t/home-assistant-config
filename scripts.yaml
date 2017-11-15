@@ -1,3 +1,13 @@
+power_cycle_onkyo:
+  sequence:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.onkyo_power
+    - delay: 00:00:10
+    - service: switch.turn_on
+      data:
+        entity_id: switch.onkyo_power
+
 retropie_power_off:
   sequence:
     - service: media_player.select_source
