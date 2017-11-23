@@ -26,6 +26,45 @@
   action:
     - service: script.retropie_power_on
 
+- id: lights_on_at_sunset
+  alias: Lights on at Sunset
+  trigger:
+    - platform: homeassistant
+      event: start
+    - entity_id: device_tracker.lesley_paiges_iphone
+      platform: state
+      to: home
+    - entity_id: device_tracker.matthews_iphone
+      platform: state
+      to: home
+    - platform: sun
+      event: sunset
+  condition:
+    condition: and
+    conditions:
+#      - condition: state
+#        entity_id: sun.sun
+#        state: 'below_horizon'
+      - condition: time
+        before: '22:00:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.rock_lamp
+
+- id: lights_off
+  alias: Lights Off
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: time
+      at: '22:00:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.rock_lamp
 
 - id: alarm_on_at_night
   alias: Turn alarm on at night
