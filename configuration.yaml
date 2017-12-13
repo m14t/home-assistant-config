@@ -124,6 +124,11 @@ light:
     name: Rock Lamp
     state_topic: "stat/rock-lamp/POWER"
 
+  - platform: mqtt
+    command_topic: "cmnd/office-lamp/POWER"
+    name: Office Lamp
+    state_topic: "stat/office-lamp/POWER"
+
 # View all events in a logbook
 logbook:
 

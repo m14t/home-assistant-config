@@ -26,6 +26,38 @@
   action:
     - service: script.retropie_power_on
 
+- id: office_lamp_on
+  alias: Office Lights On
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-00:45:00'
+  condition:
+      - condition: time
+        before: '19:00:00'
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.office_lamp
+
+- id: office_lamp_off
+  alias: Office Lights Off
+  trigger:
+    - platform: time
+      at: '19:00:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.office_lamp
+
 - id: lights_on_at_sunset
   alias: Lights on at Sunset
   trigger:
