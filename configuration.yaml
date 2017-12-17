@@ -1,5 +1,6 @@
 alarm_control_panel:
   - platform: arlo
+    away_mode_name: Armed
 
 alarmdecoder:
   device:
