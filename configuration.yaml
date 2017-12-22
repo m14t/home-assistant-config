@@ -30,9 +30,9 @@ alarmdecoder:
     14:
       name: Right Living Room Window
       type: opening
-    #15:
-    #  name: Upstairs Motion
-    #  type: motion
+    15:
+      name: Upstairs Motion
+      type: motion
     16:
       name: Guest Room Window
       type: opening

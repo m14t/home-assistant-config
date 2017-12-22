@@ -14,11 +14,11 @@ alarm:
     - binary_sensor.bathroom_window #18
     - binary_sensor.office_window #19
     - binary_sensor.master_bedroom_window #20
+    - binary_sensor.upstairs_motion # 15
 
     # NOT EXPOSED
     #- binary_sensor.alarm_box # 8
     #- alarm_control_panel.service_equipment # 9
-    #- binary_sensor.upstairs_motion # 15
     #- binary_sensor.stairway_smoke # 17
 
 arlo:
