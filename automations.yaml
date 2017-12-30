@@ -65,7 +65,7 @@
       event: sunset
   condition:
       - condition: time
-        before: '22:00:00'
+        before: !secret constants_bed_time
   action:
     - service: light.turn_on
       data:
@@ -80,7 +80,7 @@
     - platform: homeassistant
       event: start
     - platform: time
-      at: '22:00:00'
+      at: !secret constants_bed_time
   action:
     - service: light.turn_off
       data:
@@ -93,7 +93,7 @@
   alias: Turn alarm on at night
   trigger:
     platform: time
-    at: '22:00:00'
+    at: !secret constants_bed_time
   action:
     - service: alarm_control_panel.alarm_arm_home
       data:
