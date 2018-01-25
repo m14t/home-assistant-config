@@ -71,8 +71,6 @@
       data:
         entity_id:
           - light.rock_lamp
-          - light.guest_room_christmas_lights
-          - light.christmas_tree
 
 - id: lights_off
   alias: Lights Off
@@ -86,8 +84,6 @@
       data:
         entity_id:
           - light.rock_lamp
-          - light.guest_room_christmas_lights
-          - light.christmas_tree
 
 - id: alarm_on_at_night
   alias: Turn alarm on at night

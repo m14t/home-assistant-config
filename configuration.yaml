@@ -111,16 +111,6 @@ http:
 
 light:
   - platform: mqtt
-    command_topic: "cmnd/bedroom-christmas-lights/POWER"
-    name: Guest Room Christmas Lights
-    state_topic: "stat/bedroom-christmas-lights/POWER"
-
-  - platform: mqtt
-    command_topic: "cmnd/christmas-tree/POWER"
-    name: Christmas Tree
-    state_topic: "stat/christmas-tree/POWER"
-
-  - platform: mqtt
     command_topic: "cmnd/rock-lamp/POWER"
     name: Rock Lamp
     state_topic: "stat/rock-lamp/POWER"
