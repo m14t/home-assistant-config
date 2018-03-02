@@ -158,7 +158,7 @@ nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
   structure:
-    - 121 Thousand Oaks
+    - !secret nest_structure_1
 
 recorder:
   db_url: !secret recorder_db_url
