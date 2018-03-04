@@ -202,6 +202,7 @@ sensor:
   - platform: yr
 
 shell_command:
+  retropi_power_off: ssh pi@192.168.1.28 'sudo shutdown -h now'
   tv_power_off: curl -X POST http://192.168.1.42:8060/keypress/PowerOff
   tv_power_on: curl -X POST http://192.168.1.42:8060/keypress/PowerOn
 
