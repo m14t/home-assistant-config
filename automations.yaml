@@ -130,3 +130,30 @@
     - service: switch.turn_off
       data:
         entity_id: switch.tv
+
+- id: notify_when_alarm_triggered
+  alias: Notify when alarm is triggered
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.alarm_panel
+      to: triggered
+  action:
+    - service: notify.ios_matthews_iphone
+      data:
+        message: "Alarm Triggered!"
+        data:
+          push:
+            category: alarm
+
+- id: ios_triggered_disable_alarm
+  alias: iOS Triggered - Disable Alarm
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: SILENCE_ALARM
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        code: !secret alarm_master_code
+        entity_id: alarm_control_panel.alarm_panel
