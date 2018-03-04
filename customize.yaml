@@ -8,6 +8,8 @@ binary_sensor.downstairs_thermostat_is_using_emergency_heat:
   hidden: true
 binary_sensor.downstairs_thermostat_online:
   hidden: true
+binary_sensor.tv:
+  hidden: true
 climate.downstairs:
   hidden: true
 script.power_cycle_onkyo:
@@ -16,3 +18,7 @@ script.retropie_power_off:
   can_cancel: false
 script.retropie_power_on:
   can_cancel: false
+script.tv_power_on:
+  hidden: true
+switch.tv_wakeonlan:
+  hidden: true

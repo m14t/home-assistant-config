@@ -28,3 +28,10 @@ retropie_power_on:
       data:
         entity_id: media_player.receiver
         source: video3 # RetroPie
+
+tv_power_on:
+  sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.tv_wake_on_lan
+    - service: shell_command.tv_power_on
