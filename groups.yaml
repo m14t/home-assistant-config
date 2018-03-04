@@ -40,6 +40,14 @@ arlo:
     - sensor.captured_today_yard
     - sensor.last_yard
 
+identity:
+  name: identity
+  icon: mdi:cellphone-iphone
+  entities:
+    - device_tracker.matthews_iphone
+    - sensor.matthews_iphone_battery_level
+    - sensor.matthews_iphone_battery_state
+
 bedroom:
   name: Bedroom
   icon: mdi:hotel
