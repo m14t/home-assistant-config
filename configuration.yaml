@@ -134,6 +134,15 @@ ios:
             title: 'Silence Alarm'
           - identifier: 'DO_NOTHING'
             title: 'Do Nothing'
+      - name: Garage
+        identifier: 'GARAGE'
+        actions:
+          - identifier: 'OPEN_GARAGE'
+            authenticationRequired: true
+            destructive: true
+            title: 'Open Garage'
+          - identifier: 'DO_NOTHING'
+            title: 'Do nothing'
 
 light:
   - platform: mqtt
