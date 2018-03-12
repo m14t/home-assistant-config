@@ -151,6 +151,15 @@ light:
     state_topic: "stat/rock-lamp/POWER"
 
   - platform: mqtt
+    command_topic: "cmnd/hot-tub/POWER"
+    name: Hot Tub Lights
+    payload_off: "OFF"
+    payload_on: "ON"
+    qos: 1
+    retain: true
+    state_topic: "stat/hot-tub/POWER"
+
+  - platform: mqtt
     command_topic: "cmnd/office-lamp/POWER"
     name: Office Lamp
     state_topic: "stat/office-lamp/POWER"

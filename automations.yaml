@@ -119,6 +119,26 @@
     service: alarm_control_panel.alarm_disarm
     entity_id: alarm_control_panel.hercules
 
+- id: hot_tub_lights_off
+  alias: Turn off Hot Tub Lights with Rock Lamp
+  trigger:
+    - platform: state
+      entity_id: light.rock_lamp
+      to: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.hot_tub_lights
+
+- id: hot_tub_lights_on
+  alias: Turn on Hot Tub Lights with Rock Lamp
+  trigger:
+    - platform: state
+      entity_id: light.rock_lamp
+      to: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.hot_tub_lights
+
 - id: sync_tv_and_retropi_power_with_receiver
   alias: Sync TV & RetroPi power with receiver
   trigger:
