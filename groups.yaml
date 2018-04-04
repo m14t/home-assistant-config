@@ -60,6 +60,16 @@ bedroom:
     - sensor.bedroom_humidity
     - sensor.bedroom_temperature
 
+garden:
+  name: Garden
+  icon: mdi:flower
+  entities:
+    - sensor.mi_flora_battery
+    - sensor.mi_flora_conductivity
+    - sensor.mi_flora_light_intensity
+    - sensor.mi_flora_moisture
+    - sensor.mi_flora_temperature
+
 kitchen:
   name: Kitchen
   icon: mdi:silverware-variant
