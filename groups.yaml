@@ -104,3 +104,15 @@ pihole:
     - sensor.pihole_dns_unique_clients
     - sensor.pihole_dns_unique_domains
     - sensor.pihole_domains_blocked
+
+sabnzbd:
+  name: SABnzbd
+  icon: mdi:cloud-download
+  entities:
+    - sensor.sabnzbd_status
+    - sensor.sabnzbd_speed
+    - sensor.sabnzbd_queue
+    - sensor.sabnzbd_left
+    - sensor.sabnzbd_disk
+    - sensor.sabnzbd_disk_free
+    - sensor.sabnzbd_queue_count

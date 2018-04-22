@@ -239,6 +239,18 @@ sensor:
     ssl: true
     verify_ssl: false
 
+  - platform: sabnzbd
+    host: !secret sabnzbd_host
+    api_key: !secret sabnzbd_api_key
+    monitored_variables:
+      - current_status
+      - speed
+      - queue_size
+      - queue_remaining
+      - disk_size
+      - disk_free
+      - queue_count
+
   - platform: yweather
     monitored_conditions:
       - temperature
