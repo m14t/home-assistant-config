@@ -200,6 +200,12 @@ nest:
   structure:
     - !secret nest_structure_1
 
+panel_iframe:
+  pihole:
+    title: Pi-hole
+    icon: mdi:block-helper
+    url: !secret pihole_url
+
 recorder:
   db_url: !secret recorder_db_url
 
@@ -227,6 +233,11 @@ sensor:
     name: "Hot Tub"
     unit_of_measurement: "°F"
     value_template: '{{ value_json.DS18B20.Temperature }}'
+
+  - platform: pi_hole
+    host: !secret pihole_host
+    ssl: true
+    verify_ssl: false
 
   - platform: yweather
     monitored_conditions:

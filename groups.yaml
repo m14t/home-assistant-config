@@ -91,3 +91,16 @@ nest:
     - sensor.downstairs_thermostat_operation_mode
     #- sensor.downstairs_thermostat_target
     - sensor.downstairs_thermostat_temperature
+
+pihole:
+  name: Pi-hole
+  icon: mdi:block-helper
+  entities:
+    - sensor.pihole_ads_blocked_today
+    - sensor.pihole_ads_percentage_blocked_today
+    - sensor.pihole_dns_queries_cached
+    - sensor.pihole_dns_queries_forwarded
+    - sensor.pihole_dns_queries_today
+    - sensor.pihole_dns_unique_clients
+    - sensor.pihole_dns_unique_domains
+    - sensor.pihole_domains_blocked
