@@ -14,6 +14,8 @@ climate.downstairs:
   hidden: true
 script.power_cycle_onkyo:
   can_cancel: false
+script.flash_rock_lamp:
+  can_cancel: false
 script.retropie_power_off:
   can_cancel: false
 script.retropie_power_on:

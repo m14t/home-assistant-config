@@ -218,3 +218,13 @@
   action:
     - service: cover.open_cover
       entity_id: cover.garage_door
+
+- id: flash_rock_lamp_on_donwload_complete
+  alias: Flash Rock Lamp on download complete
+  trigger:
+    - platform: state
+      entity_id: sensor.sabnzbd_status
+      from: Downloading
+      to: Idle
+  action:
+    - service: script.flash_rock_lamp

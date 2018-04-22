@@ -1,3 +1,46 @@
+flash_rock_lamp:
+  sequence:
+    - service: automation.toggle
+      data:
+        entity_id: automation.turn_on_hot_tub_lights_with_rock_lamp
+    - service: automation.toggle
+      data:
+        entity_id: automation.turn_off_hot_tub_lights_with_rock_lamp
+    - service: light.toggle
+      data:
+        entity_id: light.rock_lamp
+    - delay:
+        seconds: 0.5
+    - service: light.toggle
+      data:
+        entity_id: light.rock_lamp
+    - delay:
+        seconds: 0.5
+    - service: light.toggle
+      data:
+        entity_id: light.rock_lamp
+    - delay:
+        seconds: 0.5
+    - service: light.toggle
+      data:
+        entity_id: light.rock_lamp
+    - delay:
+        seconds: 0.5
+    - service: light.toggle
+      data:
+        entity_id: light.rock_lamp
+    - delay:
+        seconds: 0.5
+    - service: light.toggle
+      data:
+        entity_id: light.rock_lamp
+    - service: automation.toggle
+      data:
+        entity_id: automation.turn_on_hot_tub_lights_with_rock_lamp
+    - service: automation.toggle
+      data:
+        entity_id: automation.turn_off_hot_tub_lights_with_rock_lamp
+
 power_cycle_onkyo:
   sequence:
     - service: switch.turn_off
