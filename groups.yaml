@@ -105,6 +105,16 @@ pihole:
     - sensor.pihole_dns_unique_domains
     - sensor.pihole_domains_blocked
 
+radarr:
+  name: Radarr
+  icon: mdi:movie
+  entities:
+    - sensor.radarr_movies
+    - sensor.radarr_upcoming
+    - sensor.radarr_commands
+    - sensor.radarr_disk_space
+    - sensor.radarr_status
+
 sabnzbd:
   name: SABnzbd
   icon: mdi:cloud-download

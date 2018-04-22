@@ -239,6 +239,16 @@ sensor:
     ssl: true
     verify_ssl: false
 
+  - platform: radarr
+    host: !secret radarr_host
+    api_key: !secret radarr_api_key
+    monitored_conditions:
+      - movies
+      - upcoming
+      - commands
+      - diskspace
+      - status
+
   - platform: sabnzbd
     host: !secret sabnzbd_host
     api_key: !secret sabnzbd_api_key
