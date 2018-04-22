@@ -116,3 +116,14 @@ sabnzbd:
     - sensor.sabnzbd_disk
     - sensor.sabnzbd_disk_free
     - sensor.sabnzbd_queue_count
+
+sonarr:
+  name: Sonarr
+  icon: mdi:television-classic
+  entities:
+    - sensor.sonarr_series
+    - sensor.sonarr_upcoming
+    - sensor.sonarr_wanted
+    - sensor.sonarr_queue
+    - sensor.sonarr_commands
+    - sensor.sonarr_disk_space

@@ -251,6 +251,17 @@ sensor:
       - disk_free
       - queue_count
 
+  - platform: sonarr
+    host: !secret sonarr_host
+    api_key: !secret sonarr_api_key
+    monitored_conditions:
+      - series
+      - upcoming
+      - wanted
+      - queue
+      - commands
+      - diskspace
+
   - platform: yweather
     monitored_conditions:
       - temperature
