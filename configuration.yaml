@@ -49,6 +49,9 @@ alarmdecoder:
       name: Master Bedroom Window
       type: opening
 
+apcupsd:
+  host: a722577e-apcupsd
+
 arlo:
   username: !secret arlo_username
   password: !secret arlo_password
@@ -212,6 +215,19 @@ recorder:
 
 # Weather prediction
 sensor:
+  - platform: apcupsd
+    resources:
+      - bcharge
+      - linev
+      - loadpct
+      - nominv
+      - nompower
+      - numxfers
+      - outputv
+      - status
+      - timeleft
+      - tonbatt
+
   - platform: arlo
 
   - platform: miflora
