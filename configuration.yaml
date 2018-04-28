@@ -117,6 +117,44 @@ homekit:
   entity_config:
     alarm_control_panel.alarm_panel:
       code: !secret alarm_master_code
+  filter:
+    exclude_domains:
+      - device_tracker
+      - script
+    exclude_entities:
+      - binary_sensor.bathroom_window
+      - binary_sensor.downstairs_thermostat_fan
+      - binary_sensor.downstairs_thermostat_has_leaf
+      - binary_sensor.downstairs_thermostat_is_locked
+      - binary_sensor.downstairs_thermostat_is_using_emergency_heat
+      - binary_sensor.downstairs_thermostat_online
+      - binary_sensor.family_slider
+      - binary_sensor.front_door
+      - binary_sensor.garage_door
+      - binary_sensor.guest_room_window
+      - binary_sensor.left_living_room_window
+      - binary_sensor.master_bedroom_window
+      - binary_sensor.office_window
+      - binary_sensor.right_living_room_window
+      - binary_sensor.tv
+      - binary_sensor.tv
+      - binary_sensor.upstairs_motion
+      - binary_sensor.upstairs_motion
+      - sensor.battery_level_drive
+      - sensor.battery_level_yard
+      - sensor.downstairs_thermostat_target
+      - sensor.lesley_paiges_iphone_battery_level
+      - sensor.matthews_iphone_battery_level
+      - sensor.mi_flora_battery
+      - sensor.mi_flora_conductivity
+      - sensor.mi_flora_light_intensity
+      - sensor.mi_flora_moisture
+      - sensor.mi_flora_temperature
+      - sensor.ups_battery
+      - sensor.ups_load
+      - switch.onkyo_power
+      - switch.tv
+      - switch.tv_wakeonlan
 
 http:
   api_password: !secret http_api_password
