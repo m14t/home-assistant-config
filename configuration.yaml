@@ -90,6 +90,7 @@ fan:
 
 # Enables the frontend
 frontend:
+  javascript_version: latest
 
 # Enables support for tracking state changes over time
 history:
