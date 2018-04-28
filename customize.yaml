@@ -20,6 +20,16 @@ script.retropie_power_off:
   can_cancel: false
 script.retropie_power_on:
   can_cancel: false
+sensor.bedroom_humidity:
+  device_class: humidity
+sensor.bedroom_temperature:
+  device_class: temperature
+sensor.downstairs_thermostat_humidity:
+  device_class: humidity
+sensor.current_outside_temperature:
+  device_class: temperature
+sensor.mi_flora_temperature:
+  device_class: temperature
 script.tv_power_on:
   hidden: true
 switch.tv_wakeonlan:
