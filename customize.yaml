@@ -14,6 +14,10 @@ binary_sensor.tv:
   hidden: true
 climate.downstairs:
   hidden: true
+group.all_automations:
+  hidden: true
+group.all_scripts:
+  hidden: true
 script.power_cycle_onkyo:
   can_cancel: false
 script.flash_rock_lamp:

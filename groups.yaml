@@ -1,3 +1,4 @@
+#-- Groups
 alarm:
   name: Alarm
   icon: mdi:mdi-security
@@ -183,3 +184,18 @@ ups:
     - sensor.ups_time_left
     - sensor.ups_time_on_battery
     - sensor.ups_transfer_count
+
+#-- Views
+technical_panel:
+  name: Technical
+  view: yes
+  entities:
+    - group.all_automations
+    - group.all_scripts
+    - group.pihole
+    - group.radarr
+    - group.sabnzbd
+    - group.sonarr
+    - group.ups
+    - group.smoke_and_co_detectors
+    - zwave.aeotec_zw090_zstick_gen5_us
