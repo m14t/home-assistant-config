@@ -82,15 +82,6 @@ cover:
 # Discover some devices automatically
 discovery:
 
-fan:
-  - platform: mqtt
-    command_topic: "cmnd/bedroom-fan/POWER"
-    name: Bedroom Fan
-    speeds:
-      - off
-      - high
-    state_topic: "stat/bedroom-fan/POWER"
-
 # Enables the frontend
 frontend:
   javascript_version: latest
@@ -358,6 +349,15 @@ switch:
     mac_address: 0c:62:a6:50:d4:80
     name: TV Wake-on-LAN
     host: "192.168.1.42"
+
+  - platform: mqtt
+    command_topic: "cmnd/bedroom-fan/POWER"
+    name: Bedroom Fan
+    payload_off: "OFF"
+    payload_on: "ON"
+    qos: 1
+    retain: true
+    state_topic: "stat/bedroom-fan/POWER"
 
   - platform: mqtt
     command_topic: "cmnd/onkyo-power/POWER"

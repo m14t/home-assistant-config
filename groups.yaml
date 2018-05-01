@@ -56,7 +56,7 @@ bedroom:
   name: Bedroom
   icon: mdi:hotel
   entities:
-    - fan.bedroom_fan
+    - switch.bedroom_fan
     - sensor.bedroom_humidity
     - sensor.bedroom_temperature
 
