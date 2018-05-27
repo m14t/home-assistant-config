@@ -30,3 +30,31 @@ sensor.matthews_iphone_battery_state:
   name:
   platform: ios
   unique_id: state_matthews_iphone
+zwave.aeotec_zw090_zstick_gen5_us:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.upstairs_smoke_and_co_detector:
+  name:
+  platform: zwave
+  unique_id: node-2
+sensor.upstairs_smoke_and_co_detector_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 2-72057594077528065
+sensor.upstairs_smoke_and_co_detector_alarm_level:
+  name: ''
+  platform: zwave
+  unique_id: 2-72057594077528081
+zwave.kitchen_smoke_and_co_detector:
+  name:
+  platform: zwave
+  unique_id: node-3
+sensor.kitchen_smoke_and_co_detector_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 3-72057594094305281
+sensor.kitchen_smoke_and_co_detector_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 3-72057594094305297
