@@ -126,6 +126,10 @@ sabnzbd:
     - sensor.sabnzbd_disk
     - sensor.sabnzbd_disk_free
     - sensor.sabnzbd_queue_count
+    - sensor.sabnzbd_daily_total
+    - sensor.sabnzbd_weekly_total
+    - sensor.sabnzbd_monthly_total
+    - sensor.sabnzbd_total
 
 sonarr:
   name: Sonarr

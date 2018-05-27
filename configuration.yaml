@@ -242,7 +242,22 @@ panel_iframe:
 recorder:
   db_url: !secret recorder_db_url
 
-# Weather prediction
+sabnzbd:
+  host: !secret sabnzbd_host
+  api_key: !secret sabnzbd_api_key
+  sensors:
+    - current_status
+    - speed
+    - queue_size
+    - queue_remaining
+    - disk_size
+    - disk_free
+    - queue_count
+    - day_size
+    - week_size
+    - month_size
+    - total_size
+
 sensor:
   - platform: apcupsd
     resources:
@@ -294,18 +309,6 @@ sensor:
       - commands
       - diskspace
       - status
-
-  - platform: sabnzbd
-    host: !secret sabnzbd_host
-    api_key: !secret sabnzbd_api_key
-    monitored_variables:
-      - current_status
-      - speed
-      - queue_size
-      - queue_remaining
-      - disk_size
-      - disk_free
-      - queue_count
 
   - platform: sonarr
     host: !secret sonarr_host
