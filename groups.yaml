@@ -131,6 +131,19 @@ sabnzbd:
     - sensor.sabnzbd_monthly_total
     - sensor.sabnzbd_total
 
+smoke_and_co_detectors:
+  name: Smoke and CO Detectors
+  icon: mdi:smoke-detector
+  entities:
+    - zwave.kitchen_smoke_and_co_detector
+    - sensor.kitchen_smoke_and_co_detector_alarm_level
+    - sensor.kitchen_smoke_and_co_detector_alarm_type
+    - sensor.kitchen_smoke_and_co_detector_battery_level
+    - zwave.upstairs_smoke_and_co_detector
+    - sensor.upstairs_smoke_and_co_detector_alarm_level
+    - sensor.upstairs_smoke_and_co_detector_alarm_type
+    - sensor.upstairs_smoke_and_co_detector_battery_level
+
 sonarr:
   name: Sonarr
   icon: mdi:television-classic
