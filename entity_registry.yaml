@@ -1,0 +1,32 @@
+climate.downstairs:
+  name:
+  platform: nest
+  unique_id: VUKXsXTvsYWIMHsVD_iMqvc_VurJTB58
+media_player.apple_tv:
+  name:
+  platform: apple_tv
+  unique_id: 6727123bdea2a7847465260a70b2e8c9fff01ae3d77a3baf902b23285f3170c8
+media_player.family_room:
+  name:
+  platform: roku
+  unique_id: YN00LJ939484
+remote.apple_tv:
+  name:
+  platform: apple_tv
+  unique_id: 6727123bdea2a7847465260a70b2e8c9fff01ae3d77a3baf902b23285f3170c8
+sensor.lesley_paiges_iphone_battery_level:
+  name:
+  platform: ios
+  unique_id: level_lesley_paiges_iphone
+sensor.matthews_iphone_battery_level:
+  name:
+  platform: ios
+  unique_id: level_matthews_iphone
+sensor.lesley_paiges_iphone_battery_state:
+  name:
+  platform: ios
+  unique_id: state_lesley_paiges_iphone
+sensor.matthews_iphone_battery_state:
+  name:
+  platform: ios
+  unique_id: state_matthews_iphone
