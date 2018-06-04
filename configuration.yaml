@@ -238,6 +238,10 @@ panel_iframe:
     title: Pi-hole
     icon: mdi:block-helper
     url: !secret pihole_url
+  sonweb:
+    title: SonWEB
+    icon: mdi:lightbulb-on
+    url: !secret sonweb_url
 
 recorder:
   db_url: !secret recorder_db_url
