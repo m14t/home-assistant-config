@@ -1,3 +1,5 @@
+binary_sensor.downstairs_away:
+  hidden: true
 binary_sensor.downstairs_thermostat_fan:
   hidden: true
 binary_sensor.downstairs_thermostat_has_leaf:
@@ -20,6 +22,8 @@ script.retropie_power_off:
   can_cancel: false
 script.retropie_power_on:
   can_cancel: false
+sensor.downstairs_eta:
+  hidden: true
 sensor.bedroom_humidity:
   device_class: humidity
 sensor.bedroom_temperature:

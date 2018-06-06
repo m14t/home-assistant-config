@@ -86,11 +86,13 @@ nest:
     #- binary_sensor.downstairs_thermostat_is_locked
     #- binary_sensor.downstairs_thermostat_is_using_emergency_heat
     #- binary_sensor.downstairs_thermostat_online
+    #- binary_sensor.downstairs_away
     - sensor.downstairs_thermostat_humidity
     - sensor.downstairs_thermostat_hvac_state
     - sensor.downstairs_thermostat_operation_mode
     #- sensor.downstairs_thermostat_target
     - sensor.downstairs_thermostat_temperature
+    #- sensor.downstairs_eta
 
 pihole:
   name: Pi-hole
