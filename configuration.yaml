@@ -325,6 +325,17 @@ sensor:
       - commands
       - diskspace
 
+  - platform: speedtest
+    minute:
+      - 0
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
+    monitored_conditions:
+      - ping
+
   - platform: template
     sensors:
       kitchen_smoke_and_co_detector_battery_level:
