@@ -26,6 +26,7 @@ arlo:
   icon: mdi:mdi-security
   entities:
     - alarm_control_panel.hercules
+    - alarm_control_panel.babycam
     - sensor.arlo_cameras
 
     - camera.drive
@@ -39,6 +40,12 @@ arlo:
     - sensor.signal_strength_yard
     - sensor.captured_today_yard
     - sensor.last_yard
+
+    - camera.babycam
+    - sensor.battery_level_babycam
+    - sensor.signal_strength_babycam
+    - sensor.captured_today_babycam
+    - sensor.last_babycam
 
 identity:
   name: Identity
