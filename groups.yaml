@@ -65,7 +65,10 @@ bedroom:
   entities:
     - switch.bedroom_fan
     - sensor.bedroom_humidity
+    - sensor.humidity_babycam
     - sensor.bedroom_temperature
+    - sensor.temperature_babycam
+    - sensor.air_quality_babycam
 
 garden:
   name: Garden
