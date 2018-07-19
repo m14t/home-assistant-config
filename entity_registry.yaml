@@ -1,60 +1,90 @@
 climate.downstairs:
+  config_entry_id:
   name:
   platform: nest
   unique_id: VUKXsXTvsYWIMHsVD_iMqvc_VurJTB58
 media_player.apple_tv:
+  config_entry_id:
   name:
   platform: apple_tv
   unique_id: 6727123bdea2a7847465260a70b2e8c9fff01ae3d77a3baf902b23285f3170c8
 media_player.family_room:
+  config_entry_id:
   name:
   platform: roku
   unique_id: YN00LJ939484
+media_player.matts_iphone:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: 252E881F-605E-4823-8C8A-F41F18FA884C
+media_player.chrome:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: q035ggnr3ejqeewq0ehosjwt
+media_player.den:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: D6C98F6B-6CC9-498A-ACE2-6B6DD5E207A1
 remote.apple_tv:
+  config_entry_id:
   name:
   platform: apple_tv
   unique_id: 6727123bdea2a7847465260a70b2e8c9fff01ae3d77a3baf902b23285f3170c8
 sensor.lesley_paiges_iphone_battery_level:
+  config_entry_id:
   name:
   platform: ios
   unique_id: level_lesley_paiges_iphone
 sensor.matthews_iphone_battery_level:
+  config_entry_id:
   name:
   platform: ios
   unique_id: level_matthews_iphone
 sensor.lesley_paiges_iphone_battery_state:
+  config_entry_id:
   name:
   platform: ios
   unique_id: state_lesley_paiges_iphone
 sensor.matthews_iphone_battery_state:
+  config_entry_id:
   name:
   platform: ios
   unique_id: state_matthews_iphone
 zwave.aeotec_zw090_zstick_gen5_us:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-1
 zwave.upstairs_smoke_and_co_detector:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-2
 sensor.upstairs_smoke_and_co_detector_alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 2-72057594077528065
 sensor.upstairs_smoke_and_co_detector_alarm_level:
+  config_entry_id:
   name: ''
   platform: zwave
   unique_id: 2-72057594077528081
 zwave.kitchen_smoke_and_co_detector:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: node-3
 sensor.kitchen_smoke_and_co_detector_alarm_type:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 3-72057594094305281
 sensor.kitchen_smoke_and_co_detector_alarm_level:
+  config_entry_id:
   name:
   platform: zwave
   unique_id: 3-72057594094305297
