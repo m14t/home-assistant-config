@@ -1,0 +1,10 @@
+#!/bin/bash
+
+time docker run \
+  --rm \
+  -v $PWD:/root/.homeassistant/ \
+  -v $PWD/empty-file:/ssl/fullchain.pem \
+  -v $PWD/empty-file:/ssl/privkey.pem \
+  -w /root/.homeassistant/ \
+  homeassistant/amd64-homeassistant:0.74.2 \
+  hass --script check_config
