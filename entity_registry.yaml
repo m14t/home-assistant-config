@@ -1,5 +1,5 @@
 climate.downstairs:
-  config_entry_id:
+  config_entry_id: 326d5aaa77cb45c6b1126c7e491e5a41
   name:
   platform: nest
   unique_id: VUKXsXTvsYWIMHsVD_iMqvc_VurJTB58
@@ -23,6 +23,11 @@ media_player.chrome:
   name:
   platform: plex
   unique_id: q035ggnr3ejqeewq0ehosjwt
+media_player.chrome_2:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: 64ngfn6e91dh31zon170221e
 media_player.den:
   config_entry_id:
   name:
