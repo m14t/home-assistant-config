@@ -106,6 +106,16 @@ nest:
     #- sensor.downstairs_eta
     - sensor.downstairs_security_state
 
+openuv:
+  name: OpenUV
+  icon: mdi:white-balance-sunny
+  entities:
+    - binary_sensor.protection_window
+    - sensor.current_ozone_level
+    - sensor.current_uv_index
+    - sensor.max_uv_index
+    - sensor.skin_type_2_safe_exposure_time
+
 pihole:
   name: Pi-hole
   icon: mdi:block-helper
@@ -198,6 +208,7 @@ default_view:
     - sensor.yr_symbol
 
     - group.all_covers
+    - group.openuv
     - group.identity
     - group.alarm
     - group.arlo

@@ -233,6 +233,9 @@ nest:
   structure:
     - !secret nest_structure_1
 
+openuv:
+  api_key: !secret openuv_api_key
+
 panel_iframe:
   pihole:
     title: Pi-hole
