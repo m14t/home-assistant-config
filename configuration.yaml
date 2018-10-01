@@ -5,7 +5,7 @@ alarm_control_panel:
 alarmdecoder:
   device:
     type: socket
-    host: 192.168.1.27
+    host: 192.168.3.27
     port: 10000
   panel_display: On
   zones:
@@ -58,7 +58,7 @@ arlo:
 
 binary_sensor:
   - platform: command_line
-    command: "curl -s -N --connect-timeout 1 http://192.168.1.42:8060/query/device-info | sed -ne 's/.*<power-mode>\\(.*\\)<\\/power-mode>.*/\\1/p' || echo -n DisplayOff"
+    command: "curl -s -N --connect-timeout 1 http://192.168.3.42:8060/query/device-info | sed -ne 's/.*<power-mode>\\(.*\\)<\\/power-mode>.*/\\1/p' || echo -n DisplayOff"
     device_class: light
     name: TV
     payload_on: PowerOn
@@ -206,7 +206,7 @@ map:
 
 media_player:
   - platform: onkyo
-    host: 192.168.1.24
+    host: 192.168.3.24
     name: Receiver
     sources:
       dvd: Apple TV
@@ -359,9 +359,9 @@ sensor:
   - platform: yr
 
 shell_command:
-  retropi_power_off: ssh pi@192.168.1.28 'sudo shutdown -h now'
-  tv_power_off: curl -X POST http://192.168.1.42:8060/keypress/PowerOff
-  tv_power_on: curl -X POST http://192.168.1.42:8060/keypress/PowerOn
+  retropi_power_off: ssh pi@192.168.3.28 'sudo shutdown -h now'
+  tv_power_off: curl -X POST http://192.168.3.42:8060/keypress/PowerOff
+  tv_power_on: curl -X POST http://192.168.3.42:8060/keypress/PowerOn
 
 # Track the sun
 sun:
@@ -380,7 +380,7 @@ switch:
   - platform: wake_on_lan
     mac_address: 0c:62:a6:50:d4:80
     name: TV Wake-on-LAN
-    host: "192.168.1.42"
+    host: "192.168.3.42"
 
   - platform: mqtt
     command_topic: "cmnd/bedroom-fan/POWER"
@@ -410,7 +410,7 @@ switch:
     state_topic: "stat/retropie-power/POWER"
 
 tradfri:
-  host: 192.168.1.44
+  host: 192.168.3.44
 
 # Text to speech
 tts:
