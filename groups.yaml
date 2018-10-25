@@ -209,8 +209,9 @@ default_view:
 
     - group.all_covers
     - group.openuv
-    - group.identity
+    - group.bedroom_alarm
     - group.alarm
+    - group.identity
     - group.arlo
     - group.bedroom
     - group.garden
