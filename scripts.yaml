@@ -1,80 +1,75 @@
 flash_rock_lamp:
   sequence:
-    - service: automation.toggle
-      data:
-        entity_id: automation.turn_on_hot_tub_lights_with_rock_lamp
-    - service: automation.toggle
-      data:
-        entity_id: automation.turn_off_hot_tub_lights_with_rock_lamp
-    - service: light.toggle
-      data:
-        entity_id: light.rock_lamp
-    - delay:
-        seconds: 0.5
-    - service: light.toggle
-      data:
-        entity_id: light.rock_lamp
-    - delay:
-        seconds: 0.5
-    - service: light.toggle
-      data:
-        entity_id: light.rock_lamp
-    - delay:
-        seconds: 0.5
-    - service: light.toggle
-      data:
-        entity_id: light.rock_lamp
-    - delay:
-        seconds: 0.5
-    - service: light.toggle
-      data:
-        entity_id: light.rock_lamp
-    - delay:
-        seconds: 0.5
-    - service: light.toggle
-      data:
-        entity_id: light.rock_lamp
-    - service: automation.toggle
-      data:
-        entity_id: automation.turn_on_hot_tub_lights_with_rock_lamp
-    - service: automation.toggle
-      data:
-        entity_id: automation.turn_off_hot_tub_lights_with_rock_lamp
-
+  - data:
+      entity_id: automation.turn_on_hot_tub_lights_with_rock_lamp
+    service: automation.toggle
+  - data:
+      entity_id: automation.turn_off_hot_tub_lights_with_rock_lamp
+    service: automation.toggle
+  - data:
+      entity_id: light.rock_lamp
+    service: light.toggle
+  - delay:
+      seconds: 0.5
+  - data:
+      entity_id: light.rock_lamp
+    service: light.toggle
+  - delay:
+      seconds: 0.5
+  - data:
+      entity_id: light.rock_lamp
+    service: light.toggle
+  - delay:
+      seconds: 0.5
+  - data:
+      entity_id: light.rock_lamp
+    service: light.toggle
+  - delay:
+      seconds: 0.5
+  - data:
+      entity_id: light.rock_lamp
+    service: light.toggle
+  - delay: '[object Object]'
+  - data:
+      entity_id: light.rock_lamp
+    service: light.toggle
+  - data:
+      entity_id: automation.turn_on_hot_tub_lights_with_rock_lamp
+    service: automation.toggle
+  - data:
+      entity_id: automation.turn_off_hot_tub_lights_with_rock_lamp
+    service: automation.toggle
 power_cycle_onkyo:
   sequence:
-    - service: switch.turn_off
-      data:
-        entity_id: switch.onkyo_power
-    - delay: 00:00:10
-    - service: switch.turn_on
-      data:
-        entity_id: switch.onkyo_power
-
+  - service: switch.turn_off
+    data:
+      entity_id: switch.onkyo_power
+  - delay: 00:00:10
+  - service: switch.turn_on
+    data:
+      entity_id: switch.onkyo_power
 retropie_power_off:
   sequence:
-    - service: media_player.select_source
-      data:
-        entity_id: media_player.receiver
-        source: dvd # Apple TV
-    - delay: 00:02:00
-    - service: switch.turn_off
-      data:
-        entity_id: switch.retropie_power
-
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.receiver
+      source: dvd
+  - delay: 00:02:00
+  - service: switch.turn_off
+    data:
+      entity_id: switch.retropie_power
 retropie_power_on:
   sequence:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.retropie_power
-    - service: media_player.select_source
-      data:
-        entity_id: media_player.receiver
-        source: video3 # RetroPie
-
+  - service: switch.turn_on
+    data:
+      entity_id: switch.retropie_power
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.receiver
+      source: video3
 tv_power_on:
   sequence:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.tv_wake_on_lan
-    - service: shell_command.tv_power_on
+  - service: switch.turn_on
+    data:
+      entity_id: switch.tv_wake_on_lan
+  - service: shell_command.tv_power_on
