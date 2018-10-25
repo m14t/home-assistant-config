@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: homeassistant/amd64-homeassistant:0.79.1
+      - image: homeassistant/amd64-homeassistant:0.80.3
     steps:
       - checkout
       - run:
