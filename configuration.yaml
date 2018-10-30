@@ -194,11 +194,6 @@ light:
     retain: true
     state_topic: "stat/hot-tub/POWER"
 
-  - platform: mqtt
-    command_topic: "cmnd/office-lamp/POWER"
-    name: Office Lamp
-    state_topic: "stat/office-lamp/POWER"
-
 # View all events in a logbook
 logbook:
 
