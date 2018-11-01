@@ -244,6 +244,10 @@ panel_iframe:
 
 recorder:
   db_url: !secret recorder_db_url
+  exclude:
+    entities:
+      - sensor.alarm_panel_display
+      - sun.sun
 
 sabnzbd:
   host: !secret sabnzbd_host
