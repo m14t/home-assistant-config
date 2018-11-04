@@ -6,5 +6,5 @@ time docker run \
   -v $PWD/empty-file:/ssl/fullchain.pem \
   -v $PWD/empty-file:/ssl/privkey.pem \
   -w /root/.homeassistant/ \
-  homeassistant/amd64-homeassistant:0.80.3 \
+  homeassistant/amd64-homeassistant:0.81.5 \
   hass --script check_config
