@@ -148,7 +148,6 @@ homekit:
       - sensor.mi_flora_temperature
       - sensor.ups_battery
       - sensor.ups_load
-      - switch.onkyo_power
       - switch.tv
       - switch.tv_wakeonlan
 
@@ -207,24 +206,6 @@ logbook:
 
 # Enables a map showing the location of tracked devices
 map:
-
-media_player:
-  - platform: onkyo
-    host: 192.168.3.24
-    name: Receiver
-    sources:
-      dvd: Apple TV
-      video2: Roku
-      video3: RetroPie
-      video4: AUX
-      #video1: STB/DVR
-      #video6: PC
-      #phono: PHONO
-      #cd: DOCK
-      #fm: fm
-      #am: am
-      #usb: usb
-      #network: network
 
 mqtt:
   broker: !secret mqtt_broker
@@ -381,15 +362,6 @@ switch:
     mac_address: 0c:62:a6:50:d4:80
     name: TV Wake-on-LAN
     host: "192.168.3.42"
-
-  - platform: mqtt
-    command_topic: "cmnd/onkyo-power/POWER"
-    name: Onkyo Power
-    payload_off: "OFF"
-    payload_on: "ON"
-    qos: 1
-    retain: true
-    state_topic: "stat/onkyo-power/POWER"
 
   - platform: mqtt
     command_topic: "cmnd/retropie-power/POWER"

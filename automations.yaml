@@ -1,12 +1,3 @@
-- id: power_cycle_onkyo
-  alias: Power Cycle Onkyo Receiver nightly
-  trigger:
-    platform: time
-    at: '4:00:00'
-  action:
-    - service: script.power_cycle_onkyo
-
-
 - id: retropie_shutdown
   alias: RetroPie powering down
   trigger:

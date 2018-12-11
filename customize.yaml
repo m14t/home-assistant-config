@@ -26,8 +26,6 @@ group.all_switches:
   hidden: false
 group.all_vacuum_cleaners:
   hidden: false
-script.power_cycle_onkyo:
-  can_cancel: false
 script.flash_rock_lamp:
   can_cancel: false
 script.retropie_power_off:
