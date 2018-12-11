@@ -260,7 +260,6 @@ sensor:
       - nominv
       - nompower
       - numxfers
-      - outputv
       - status
       - timeleft
       - tonbatt
