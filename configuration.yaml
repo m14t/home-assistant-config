@@ -78,10 +78,6 @@ cover:
     command_topic: "home-assistant/cover/set"
     name: "Garage Door"
     state_topic: "home-assistant/cover"
-    payload_off: "OFF"
-    payload_on: "ON"
-    qos: 1
-    retain: true
 
 # Discover some devices automatically
 discovery:
@@ -279,10 +275,6 @@ sensor:
     name: "Hot Tub"
     unit_of_measurement: "°F"
     value_template: '{{ value_json.DS18B20.Temperature }}'
-    payload_off: "OFF"
-    payload_on: "ON"
-    qos: 1
-    retain: true
 
   - platform: pi_hole
     host: !secret pihole_host
