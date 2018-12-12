@@ -178,25 +178,6 @@ ios:
           - identifier: 'DO_NOTHING'
             title: 'Do nothing'
 
-light:
-  - platform: mqtt
-    command_topic: "cmnd/rock-lamp/POWER"
-    name: Rock Lamp
-    payload_off: "OFF"
-    payload_on: "ON"
-    qos: 1
-    retain: true
-    state_topic: "stat/rock-lamp/POWER"
-
-  - platform: mqtt
-    command_topic: "cmnd/hot-tub/POWER"
-    name: Hot Tub Lights
-    payload_off: "OFF"
-    payload_on: "ON"
-    qos: 1
-    retain: true
-    state_topic: "stat/hot-tub/POWER"
-
 # View all events in a logbook
 logbook:
 
@@ -354,15 +335,6 @@ switch:
     mac_address: 0c:62:a6:50:d4:80
     name: TV Wake-on-LAN
     host: "192.168.3.42"
-
-  - platform: mqtt
-    command_topic: "cmnd/retropie-power/POWER"
-    name: RetroPie Power
-    payload_off: "OFF"
-    payload_on: "ON"
-    qos: 1
-    retain: true
-    state_topic: "stat/retropie-power/POWER"
 
 tradfri:
   host: 192.168.3.44
