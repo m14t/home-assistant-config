@@ -1,0 +1,64 @@
+alarm_control_panel:
+  - platform: arlo
+    away_mode_name: Armed
+
+arlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
+
+camera:
+  - platform: arlo
+
+group:
+  arlo:
+    name: Arlo
+    icon: mdi:mdi-security
+    entities:
+      - alarm_control_panel.hercules
+      - alarm_control_panel.babycam
+      - sensor.arlo_cameras
+
+      - camera.drive
+      - sensor.battery_level_drive
+      - sensor.signal_strength_drive
+      - sensor.captured_today_drive
+      - sensor.last_drive
+
+      - camera.yard
+      - sensor.battery_level_yard
+      - sensor.signal_strength_yard
+      - sensor.captured_today_yard
+      - sensor.last_yard
+
+      - camera.babycam
+      - sensor.battery_level_babycam
+      - sensor.signal_strength_babycam
+      - sensor.captured_today_babycam
+      - sensor.last_babycam
+
+sensor:
+  - platform: arlo
+
+automation:
+  - id: arlo_on_with_alarm
+    alias: Turn Arlo on with the alarm
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.alarm_panel
+        to: armed_home
+      - platform: state
+        entity_id: alarm_control_panel.alarm_panel
+        to: armed_away
+    action:
+      service: alarm_control_panel.alarm_arm_home
+      entity_id: alarm_control_panel.hercules
+
+  - id: arlo_off_with_alarm
+    alias: Turn Arlo off with the alarm
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.alarm_panel
+        to: disarmed
+    action:
+      service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.hercules

@@ -22,32 +22,6 @@ alarm:
     #- alarm_control_panel.service_equipment # 9
     #- binary_sensor.stairway_smoke # 17
 
-arlo:
-  name: Arlo
-  icon: mdi:mdi-security
-  entities:
-    - alarm_control_panel.hercules
-    - alarm_control_panel.babycam
-    - sensor.arlo_cameras
-
-    - camera.drive
-    - sensor.battery_level_drive
-    - sensor.signal_strength_drive
-    - sensor.captured_today_drive
-    - sensor.last_drive
-
-    - camera.yard
-    - sensor.battery_level_yard
-    - sensor.signal_strength_yard
-    - sensor.captured_today_yard
-    - sensor.last_yard
-
-    - camera.babycam
-    - sensor.battery_level_babycam
-    - sensor.signal_strength_babycam
-    - sensor.captured_today_babycam
-    - sensor.last_babycam
-
 identity:
   name: Identity
   icon: mdi:cellphone-iphone

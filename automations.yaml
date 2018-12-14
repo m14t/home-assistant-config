@@ -87,29 +87,6 @@
         code: !secret alarm_master_code
         entity_id: alarm_control_panel.alarm_panel
 
-- id: arlo_on_with_alarm
-  alias: Turn Arlo on with the alarm
-  trigger:
-    - platform: state
-      entity_id: alarm_control_panel.alarm_panel
-      to: armed_home
-    - platform: state
-      entity_id: alarm_control_panel.alarm_panel
-      to: armed_away
-  action:
-    service: alarm_control_panel.alarm_arm_home
-    entity_id: alarm_control_panel.hercules
-
-- id: arlo_off_with_alarm
-  alias: Turn Arlo off with the alarm
-  trigger:
-    - platform: state
-      entity_id: alarm_control_panel.alarm_panel
-      to: disarmed
-  action:
-    service: alarm_control_panel.alarm_disarm
-    entity_id: alarm_control_panel.hercules
-
 - id: hot_tub_lights_off
   alias: Turn off Hot Tub Lights with Rock Lamp
   trigger:
