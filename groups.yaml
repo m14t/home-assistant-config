@@ -90,19 +90,6 @@ openuv:
     - sensor.max_uv_index
     - sensor.skin_type_2_safe_exposure_time
 
-smoke_and_co_detectors:
-  name: Smoke and CO Detectors
-  icon: mdi:smoke-detector
-  entities:
-    - zwave.kitchen_smoke_and_co_detector
-    - sensor.kitchen_smoke_and_co_detector_alarm_level
-    - sensor.kitchen_smoke_and_co_detector_alarm_type
-    - sensor.kitchen_smoke_and_co_detector_battery_level
-    - zwave.upstairs_smoke_and_co_detector
-    - sensor.upstairs_smoke_and_co_detector_alarm_level
-    - sensor.upstairs_smoke_and_co_detector_alarm_type
-    - sensor.upstairs_smoke_and_co_detector_battery_level
-
 ups:
   name: UPS Battery Backup
   icon: mdi:car-battery
