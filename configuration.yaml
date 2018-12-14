@@ -189,10 +189,6 @@ openuv:
   api_key: !secret openuv_api_key
 
 panel_iframe:
-  pihole:
-    title: Pi-hole
-    icon: mdi:block-helper
-    url: !secret pihole_url
   sonweb:
     title: SonWEB
     icon: mdi:lightbulb-on
@@ -242,11 +238,6 @@ sensor:
     name: "Hot Tub"
     unit_of_measurement: "°F"
     value_template: '{{ value_json.DS18B20.Temperature }}'
-
-  - platform: pi_hole
-    host: !secret pihole_host
-    ssl: true
-    verify_ssl: false
 
   - platform: radarr
     host: !secret radarr_host

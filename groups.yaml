@@ -90,20 +90,6 @@ openuv:
     - sensor.max_uv_index
     - sensor.skin_type_2_safe_exposure_time
 
-pihole:
-  name: Pi-hole
-  icon: mdi:block-helper
-  entities:
-    - sensor.pihole_ads_blocked_today
-    - sensor.pihole_ads_percentage_blocked_today
-    - sensor.pihole_dns_queries_cached
-    - sensor.pihole_dns_queries_forwarded
-    - sensor.pihole_dns_queries_today
-    - sensor.pihole_dns_unique_clients
-    - sensor.pihole_dns_unique_domains
-    - sensor.pihole_domains_blocked
-    - sensor.pihole_seen_clients
-
 radarr:
   name: Radarr
   icon: mdi:movie
