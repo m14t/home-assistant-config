@@ -137,28 +137,6 @@ http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
-ios:
-  push:
-    categories:
-      - name: Alarm
-        identifier: alarm
-        actions:
-          - identifier: 'SILENCE_ALARM'
-            authenticationRequired: true
-            destructive: true
-            title: 'Silence Alarm'
-          - identifier: 'DO_NOTHING'
-            title: 'Do Nothing'
-      - name: Garage
-        identifier: 'GARAGE'
-        actions:
-          - identifier: 'OPEN_GARAGE'
-            authenticationRequired: true
-            destructive: true
-            title: 'Open Garage'
-          - identifier: 'DO_NOTHING'
-            title: 'Do nothing'
-
 # View all events in a logbook
 logbook:
 

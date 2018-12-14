@@ -68,33 +68,6 @@
         code: !secret alarm_master_code
         entity_id: alarm_control_panel.alarm_panel
 
-- id: notify_when_alarm_triggered
-  alias: Notify when alarm is triggered
-  trigger:
-    - platform: state
-      entity_id: alarm_control_panel.alarm_panel
-      to: triggered
-  action:
-    - service: notify.ios_matthews_iphone
-      data:
-        message: "Alarm Triggered!"
-        data:
-          push:
-            category: alarm
-
-- id: ios_triggered_disable_alarm
-  alias: iOS Triggered - Disable Alarm
-  trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: SILENCE_ALARM
-  action:
-    - service: alarm_control_panel.alarm_disarm
-      data:
-        code: !secret alarm_master_code
-        entity_id: alarm_control_panel.alarm_panel
-
 - id: matt_arrives_home
   alias: Matt Arrives Home
   trigger:
@@ -106,12 +79,6 @@
       data:
         code: !secret alarm_master_code
         entity_id: alarm_control_panel.alarm_panel
-    - service: notify.ios_matthews_iphone
-      data:
-        message: "Matt arrived home"
-        data:
-          push:
-            category: "GARAGE"
 
 - id: matt_leaves_home
   alias: Matt Leaves Home
@@ -124,14 +91,3 @@
       data:
         code: !secret alarm_master_code
         entity_id: alarm_control_panel.alarm_panel
-
-- id: ios_triggered_open_garage
-  alias: iOS Triggered - Open Garage
-  trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: OPEN_GARAGE
-  action:
-    - service: cover.open_cover
-      entity_id: cover.garage_door
