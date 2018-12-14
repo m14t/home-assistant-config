@@ -88,18 +88,6 @@
     service: light.turn_on
     entity_id: light.hot_tub_lights
 
-- id: sync_tv_and_retropi_power_with_receiver
-  alias: Sync TV & RetroPi power with receiver
-  trigger:
-    platform: state
-    entity_id: media_player.receiver
-    to: 'off'
-  action:
-    - service: shell_command.retropi_power_off
-    - service: switch.turn_off
-      data:
-        entity_id: switch.tv
-
 - id: notify_when_alarm_triggered
   alias: Notify when alarm is triggered
   trigger:

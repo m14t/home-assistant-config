@@ -130,9 +130,6 @@ default_view:
     - group.all_switches
     - group.all_lights
     - group.all_vacuum_cleaners
-    - media_player.receiver
-    - media_player.receiver_zone_2
-    #- media_player.receiver_zone_3
     - media_player.family_room
 
 technical_panel:
