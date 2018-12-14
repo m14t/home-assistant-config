@@ -26,10 +26,6 @@ group.all_vacuum_cleaners:
   hidden: false
 script.flash_rock_lamp:
   can_cancel: false
-script.retropie_power_off:
-  can_cancel: false
-script.retropie_power_on:
-  can_cancel: false
 sensor.downstairs_eta:
   hidden: true
 sensor.bedroom_humidity:

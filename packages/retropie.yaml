@@ -1,0 +1,15 @@
+automation:
+  - id: retropie_shutdown
+    alias: RetroPie powering down
+    trigger:
+      platform: mqtt
+      topic: "stat/retropie/POWER1"
+      payload: 'off'
+    action:
+      - delay: 00:02:00
+      - service: switch.turn_off
+        data:
+          entity_id: switch.retropie_power
+
+# shell_command:
+#   retropi_power_off: ssh pi@192.168.3.28 'sudo shutdown -h now'

@@ -234,9 +234,6 @@ sensor:
 
   - platform: yr
 
-shell_command:
-  retropi_power_off: ssh pi@192.168.3.28 'sudo shutdown -h now'
-
 # Track the sun
 sun:
 
