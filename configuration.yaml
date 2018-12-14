@@ -209,12 +209,6 @@ sensor:
   - platform: miflora
     mac: 'C4:7C:8D:66:5D:E7'
 
-  - platform: mqtt
-    state_topic: "tele/hot-tub/SENSOR"
-    name: "Hot Tub"
-    unit_of_measurement: "°F"
-    value_template: '{{ value_json.DS18B20.Temperature }}'
-
   - platform: speedtest
     minute:
       - 0
