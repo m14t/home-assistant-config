@@ -10,8 +10,6 @@ binary_sensor.downstairs_thermostat_is_using_emergency_heat:
   hidden: true
 binary_sensor.downstairs_thermostat_online:
   hidden: true
-binary_sensor.tv:
-  hidden: true
 climate.downstairs:
   hidden: true
 group.all_automations:
@@ -44,7 +42,3 @@ sensor.current_outside_temperature:
   device_class: temperature
 sensor.mi_flora_temperature:
   device_class: temperature
-script.tv_power_on:
-  hidden: true
-switch.tv_wakeonlan:
-  hidden: true
