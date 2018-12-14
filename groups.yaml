@@ -90,32 +90,6 @@ openuv:
     - sensor.max_uv_index
     - sensor.skin_type_2_safe_exposure_time
 
-radarr:
-  name: Radarr
-  icon: mdi:movie
-  entities:
-    - sensor.radarr_movies
-    - sensor.radarr_upcoming
-    - sensor.radarr_commands
-    - sensor.radarr_disk_space
-    - sensor.radarr_status
-
-sabnzbd:
-  name: SABnzbd
-  icon: mdi:cloud-download
-  entities:
-    - sensor.sabnzbd_status
-    - sensor.sabnzbd_speed
-    - sensor.sabnzbd_queue
-    - sensor.sabnzbd_left
-    - sensor.sabnzbd_disk
-    - sensor.sabnzbd_disk_free
-    - sensor.sabnzbd_queue_count
-    - sensor.sabnzbd_daily_total
-    - sensor.sabnzbd_weekly_total
-    - sensor.sabnzbd_monthly_total
-    - sensor.sabnzbd_total
-
 smoke_and_co_detectors:
   name: Smoke and CO Detectors
   icon: mdi:smoke-detector
@@ -128,17 +102,6 @@ smoke_and_co_detectors:
     - sensor.upstairs_smoke_and_co_detector_alarm_level
     - sensor.upstairs_smoke_and_co_detector_alarm_type
     - sensor.upstairs_smoke_and_co_detector_battery_level
-
-sonarr:
-  name: Sonarr
-  icon: mdi:television-classic
-  entities:
-    - sensor.sonarr_series
-    - sensor.sonarr_upcoming
-    - sensor.sonarr_wanted
-    - sensor.sonarr_queue
-    - sensor.sonarr_commands
-    - sensor.sonarr_disk_space
 
 ups:
   name: UPS Battery Backup

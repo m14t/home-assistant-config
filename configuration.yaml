@@ -201,22 +201,6 @@ recorder:
       - sensor.alarm_panel_display
       - sun.sun
 
-sabnzbd:
-  host: !secret sabnzbd_host
-  api_key: !secret sabnzbd_api_key
-  sensors:
-    - current_status
-    - speed
-    - queue_size
-    - queue_remaining
-    - disk_size
-    - disk_free
-    - queue_count
-    - day_size
-    - week_size
-    - month_size
-    - total_size
-
 sensor:
   - platform: apcupsd
     resources:
@@ -238,27 +222,6 @@ sensor:
     name: "Hot Tub"
     unit_of_measurement: "°F"
     value_template: '{{ value_json.DS18B20.Temperature }}'
-
-  - platform: radarr
-    host: !secret radarr_host
-    api_key: !secret radarr_api_key
-    monitored_conditions:
-      - movies
-      - upcoming
-      - commands
-      - diskspace
-      - status
-
-  - platform: sonarr
-    host: !secret sonarr_host
-    api_key: !secret sonarr_api_key
-    monitored_conditions:
-      - series
-      - upcoming
-      - wanted
-      - queue
-      - commands
-      - diskspace
 
   - platform: speedtest
     minute:
