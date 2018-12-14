@@ -57,17 +57,6 @@
         entity_id:
           - light.rock_lamp
 
-- id: alarm_on_at_night
-  alias: Turn alarm on at night
-  trigger:
-    platform: time
-    at: !secret constants_bed_time
-  action:
-    - service: alarm_control_panel.alarm_arm_home
-      data:
-        code: !secret alarm_master_code
-        entity_id: alarm_control_panel.alarm_panel
-
 - id: matt_arrives_home
   alias: Matt Arrives Home
   trigger:
