@@ -96,12 +96,6 @@ logbook:
 # Enables a map showing the location of tracked devices
 map:
 
-mqtt:
-  broker: !secret mqtt_broker
-  discovery: true
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
