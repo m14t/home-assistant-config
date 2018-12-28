@@ -22,6 +22,19 @@ automation:
           data:
             push:
               category: "arrive_home"
+  - id: lesley_arrives_home_iphone
+    alias: Notify Lesley's phone when she arrives home
+    trigger:
+      - platform: state
+        entity_id: device_tracker.lesley_paiges_iphone
+        to: home
+    action:
+      - service: notify.ios_lesley_paiges_iphone
+        data:
+          message: "Lesley Arrived Home"
+          data:
+            push:
+              category: "arrive_home"
   - id: iphone_open_garage_door
     alias: iPhone Open Garage Door
     trigger:
