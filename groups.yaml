@@ -1,16 +1,4 @@
 #-- Groups
-identity:
-  name: Identity
-  icon: mdi:cellphone-iphone
-  entities:
-    - device_tracker.matthews_iphone
-    - sensor.matthews_iphone_battery_level
-    - sensor.matthews_iphone_battery_state
-
-    - device_tracker.lesley_paiges_iphone
-    - sensor.lesley_paiges_iphone_battery_level
-    - sensor.lesley_paiges_iphone_battery_state
-
 bedroom:
   name: Bedroom
   icon: mdi:hotel
