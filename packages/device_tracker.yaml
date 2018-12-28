@@ -10,3 +10,10 @@ group:
       - device_tracker.lesley_paiges_iphone
       - sensor.lesley_paiges_iphone_battery_level
       - sensor.lesley_paiges_iphone_battery_state
+
+notify:
+  - name: all_iphones
+    platform: group
+    services:
+      - service: ios_lesley_paiges_iphone
+      - service: ios_matthews_iphone
