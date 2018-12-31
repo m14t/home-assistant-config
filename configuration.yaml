@@ -171,11 +171,11 @@ updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
 
-vacuum:
-  - platform: roomba
-    host: !secret roomba_host
-    username: !secret roomba_username
-    password: !secret roomba_password
+# vacuum:
+#   - platform: roomba
+#     host: !secret roomba_host
+#     username: !secret roomba_username
+#     password: !secret roomba_password
 
 group: !include groups.yaml
 automation: !include automations.yaml
