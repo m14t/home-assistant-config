@@ -80,9 +80,9 @@ default_view:
     - sensor.downstairs_thermostat_target
     - sensor.hot_tub
     - sensor.speedtest_ping
-    - sensor.yr_symbol
 
     - group.all_covers
+    - group.weather
     - group.openuv
     - group.bedroom_alarm
     - group.alarm
