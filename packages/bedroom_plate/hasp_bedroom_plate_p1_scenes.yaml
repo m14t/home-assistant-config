@@ -10,6 +10,8 @@ automation:
     - platform: state
       entity_id: 'binary_sensor.bedroom_plate_connected'
       to: 'on'
+    - platform: state
+      entity_id: 'light.hot_tub'
     - platform: homeassistant
       event: start
     action:
@@ -24,11 +26,11 @@ automation:
     - service: mqtt.publish
       data:
         topic: 'hasp/bedroom_plate/command/p[1].b[5].font'
-        payload: '2'
+        payload: '0'
     - service: mqtt.publish
       data:
         topic: 'hasp/bedroom_plate/command/p[1].b[5].txt'
-        payload: '"Daylight"'
+        payload_template: '"Hot Tub Lights {{ states("light.hot_tub") | title }}"'
     - service: mqtt.publish
       data:
         topic: 'hasp/bedroom_plate/command/p[1].b[6].font'
@@ -92,8 +94,8 @@ automation:
       topic: 'hasp/bedroom_plate/state/p[1].b[5]'
       payload: 'ON'
     action:
-    - service: scene.turn_on
-      entity_id: scene.daylight
+    - service: light.toggle
+      entity_id: light.hot_tub
 
   # Trigger scene.night when p[1].b[6] pressed
   - alias: hasp_bedroom_plate_p1_SceneButton6
