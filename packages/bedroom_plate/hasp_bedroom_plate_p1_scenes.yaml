@@ -6,6 +6,8 @@ automation:
   - alias: hasp_bedroom_plate_p1_ScenesInit
     trigger:
     - platform: state
+      entity_id: 'alarm_control_panel.alarm_panel'
+    - platform: state
       entity_id: 'binary_sensor.bedroom_plate_connected'
       to: 'on'
     - platform: homeassistant
@@ -14,11 +16,11 @@ automation:
     - service: mqtt.publish
       data:
         topic: 'hasp/bedroom_plate/command/p[1].b[4].font'
-        payload: '2'
+        payload: '1'
     - service: mqtt.publish
       data:
         topic: 'hasp/bedroom_plate/command/p[1].b[4].txt'
-        payload: '"Lights On"'
+        payload_template: '"Alarm {{ states("alarm_control_panel.alarm_panel").split("_")[0] | title }}"'
     - service: mqtt.publish
       data:
         topic: 'hasp/bedroom_plate/command/p[1].b[5].font'
@@ -45,14 +47,43 @@ automation:
         payload: '"Lights Off"'
 
   # Trigger scene.lights_on when p[1].b[4] pressed
-  - alias: hasp_bedroom_plate_p1_SceneButton4
+  - alias: hasp_bedroom_plate_p1_SceneButton4_1
     trigger:
     - platform: mqtt
       topic: 'hasp/bedroom_plate/state/p[1].b[4]'
       payload: 'ON'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'alarm_control_panel.alarm_panel'
+          state: 'armed_home'
+        - condition: state
+          entity_id: 'alarm_control_panel.alarm_panel'
+          state: 'armed_away'
+        - condition: state
+          entity_id: 'alarm_control_panel.alarm_panel'
+          state: 'triggered'
     action:
-    - service: scene.turn_on
-      entity_id: scene.lights_on
+      - service: alarm_control_panel.alarm_disarm
+        data:
+          code: !secret alarm_master_code
+          entity_id: alarm_control_panel.alarm_panel
+
+  - alias: hasp_bedroom_plate_p1_SceneButton4_2
+    trigger:
+    - platform: mqtt
+      topic: 'hasp/bedroom_plate/state/p[1].b[4]'
+      payload: 'ON'
+    condition:
+      - condition: state
+        entity_id: 'alarm_control_panel.alarm_panel'
+        state: 'disarmed'
+    action:
+      - service: alarm_control_panel.alarm_arm_home
+        data:
+          code: !secret alarm_master_code
+          entity_id: alarm_control_panel.alarm_panel
 
   # Trigger scene.daylight when p[1].b[5] pressed
   - alias: hasp_bedroom_plate_p1_SceneButton5
