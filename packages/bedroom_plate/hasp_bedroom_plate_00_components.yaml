@@ -18,7 +18,7 @@ homeassistant:
 #
 panel_iframe:
   bedroom_plate:
-    title: "bedroom_plate"
+    title: "Bedroom Plate"
     url: "http://bedroom_plate"
     icon: "mdi:cellphone-text"
 
@@ -125,7 +125,7 @@ input_number:
 
 group:
   bedroom_plate:
-    name: bedroom_plate
+    name: Bedroom Plate
     view: yes
     entities:
       - binary_sensor.bedroom_plate_connected
