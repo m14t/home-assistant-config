@@ -7,7 +7,7 @@ automation:
         to: 'off'
     action:
       service: light.turn_off
-      entity_id: light.hot_tub_lights
+      entity_id: light.hot_tub
 
   - id: hot_tub_lights_on
     alias: Turn on Hot Tub Lights with Rock Lamp
@@ -17,7 +17,7 @@ automation:
         to: 'on'
     action:
       service: light.turn_on
-      entity_id: light.hot_tub_lights
+      entity_id: light.hot_tub
 
 sensor:
   - platform: mqtt
