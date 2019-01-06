@@ -174,15 +174,15 @@ automation:
       - service: input_text.set_value
         data:
           entity_id: 'input_text.hasp_bedroom_plate_pagebutton1label'
-          value: 'scenes'
+          value: 'Btns'
       - service: input_text.set_value
         data:
           entity_id: 'input_text.hasp_bedroom_plate_pagebutton2label'
-          value: 'status'
+          value: 'Stats'
       - service: input_text.set_value
         data:
           entity_id: 'input_text.hasp_bedroom_plate_pagebutton3label'
-          value: 'lights'
+          value: 'Travel'
       - service: input_number.set_value
         data:
           entity_id: 'input_number.hasp_bedroom_plate_pagebutton1page'
