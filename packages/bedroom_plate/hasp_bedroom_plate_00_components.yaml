@@ -134,14 +134,6 @@ group:
       - group.bedroom_plate_pageselect
       - group.bedroom_plate_colors
       - group.bedroom_plate_automations
-      - group.bedroom_plate_fake_lights
-  bedroom_plate_fake_lights:
-    name: bedroom_plate Fake Lights
-    view: no
-    entities:
-      - light.light_1
-      - light.light_2
-      - light.light_3
   bedroom_plate_pageselect:
     name: bedroom_plate Page Selection
     view: no
