@@ -128,6 +128,55 @@ automation:
       data_template:
         entity_id: 'input_number.hasp_bedroom_plate_activepage'
         value: '{{states.input_number.hasp_bedroom_plate_pagebutton3page.state|int}}'
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.hasp_bedroom_plate_button3pressed
+
+  - alias: hasp_bedroom_plate_p0_PageButton3OffAction
+    trigger:
+    - platform: mqtt
+      topic: 'hasp/bedroom_plate/state/p[1].b[3]'
+      payload: 'OFF'
+    - platform: mqtt
+      topic: 'hasp/bedroom_plate/state/p[2].b[3]'
+      payload: 'OFF'
+    - platform: mqtt
+      topic: 'hasp/bedroom_plate/state/p[3].b[3]'
+      payload: 'OFF'
+    - platform: mqtt
+      topic: 'hasp/bedroom_plate/state/p[4].b[3]'
+      payload: 'OFF'
+    - platform: mqtt
+      topic: 'hasp/bedroom_plate/state/p[5].b[3]'
+      payload: 'OFF'
+    - platform: mqtt
+      topic: 'hasp/bedroom_plate/state/p[6].b[3]'
+      payload: 'OFF'
+    - platform: mqtt
+      topic: 'hasp/bedroom_plate/state/p[7].b[3]'
+      payload: 'OFF'
+    - platform: mqtt
+      topic: 'hasp/bedroom_plate/state/p[8].b[3]'
+      payload: 'OFF'
+    - platform: mqtt
+      topic: 'hasp/bedroom_plate/state/p[9].b[3]'
+      payload: 'OFF'
+    action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.hasp_bedroom_plate_button3pressed
+
+  - alias: hasp_bedroom_plate_p0_PageButton3LongPressAction
+    trigger:
+    - platform: state
+      entity_id: input_boolean.hasp_bedroom_plate_button3pressed
+      to: 'on'
+      for:
+        seconds: 3
+    action:
+     - service: light.toggle
+       data:
+         entity_id: light.bedroom_plate_backlight
 
 ##############################################################################
 # Update hasp_bedroom_plate_p0_active_page when changed at the panel

@@ -58,6 +58,10 @@ sensor:
       - signalStrength
       - haspIP
 
+input_boolean:
+  hasp_bedroom_plate_button3pressed:
+    name: Button3 pressed
+
 input_text:
   hasp_bedroom_plate_pagebutton1label:
     name: bedroom_plate Page 1 Label
