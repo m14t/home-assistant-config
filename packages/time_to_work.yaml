@@ -3,4 +3,4 @@ sensor:
     region: US
     name: Time to work
     origin: zone.home
-    destination: zone.lesleys_work
+    destination: zone.lesley_s_work
