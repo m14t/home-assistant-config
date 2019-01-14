@@ -105,7 +105,6 @@ technical_panel:
     - group.all_scripts
     - group.pihole
     - group.radarr
-    - group.sabnzbd
     - group.sonarr
     - group.ups
     - group.smoke_and_co_detectors

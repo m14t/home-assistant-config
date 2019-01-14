@@ -9,22 +9,6 @@ group:
       - sensor.radarr_disk_space
       - sensor.radarr_status
 
-  sabnzbd:
-    name: SABnzbd
-    icon: mdi:cloud-download
-    entities:
-      - sensor.sabnzbd_status
-      - sensor.sabnzbd_speed
-      - sensor.sabnzbd_queue
-      - sensor.sabnzbd_left
-      - sensor.sabnzbd_disk
-      - sensor.sabnzbd_disk_free
-      - sensor.sabnzbd_queue_count
-      - sensor.sabnzbd_daily_total
-      - sensor.sabnzbd_weekly_total
-      - sensor.sabnzbd_monthly_total
-      - sensor.sabnzbd_total
-
   sonarr:
     name: Sonarr
     icon: mdi:television-classic
@@ -35,22 +19,6 @@ group:
       - sensor.sonarr_queue
       - sensor.sonarr_commands
       - sensor.sonarr_disk_space
-
-sabnzbd:
-  host: !secret sabnzbd_host
-  api_key: !secret sabnzbd_api_key
-  sensors:
-    - current_status
-    - speed
-    - queue_size
-    - queue_remaining
-    - disk_size
-    - disk_free
-    - queue_count
-    - day_size
-    - week_size
-    - month_size
-    - total_size
 
 sensor:
   - platform: radarr
@@ -73,14 +41,3 @@ sensor:
       - queue
       - commands
       - diskspace
-
-automation:
-  - id: flash_rock_lamp_on_donwload_complete
-    alias: Flash Rock Lamp on download complete
-    trigger:
-      - platform: state
-        entity_id: sensor.sabnzbd_status
-        from: Downloading
-        to: Idle
-    action:
-      - service: script.flash_rock_lamp
