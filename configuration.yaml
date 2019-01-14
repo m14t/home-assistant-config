@@ -7,12 +7,6 @@ config:
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
-cover:
-  - platform: mqtt
-    command_topic: "home-assistant/cover/set"
-    name: "Garage Door"
-    state_topic: "home-assistant/cover"
-
 # Discover some devices automatically
 discovery:
 

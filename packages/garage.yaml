@@ -1,0 +1,5 @@
+cover:
+  - platform: mqtt
+    command_topic: "home-assistant/cover/set"
+    name: "Garage Door"
+    state_topic: "home-assistant/cover"
