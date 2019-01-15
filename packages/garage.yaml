@@ -13,15 +13,6 @@ binary_sensor:
     payload_off: "0"
     device_class: garage_door
 
-homeassistant:
-  customize:
-    binary_sensor.garage_door_open:
-      hidden: true
-    binary_sensor.garage_door_closed:
-      hidden: true
-    light.garage_door_light:
-      assumed_state: false
-
 group:
   garage:
     name: Garage
@@ -32,6 +23,26 @@ group:
       - binary_sensor.garage_door_closed
       - light.garage_door_light
       - script.toggle_garage_door
+homeassistant:
+  customize:
+    binary_sensor.garage_door_open:
+      hidden: true
+    binary_sensor.garage_door_closed:
+      hidden: true
+    light.garage_door_light:
+      assumed_state: false
+
+light:
+  - platform: mqtt
+    schema: template
+    name: "Garage Door Light"
+    assumed_state: false
+    command_off_template: "ON"
+    command_on_template: "ON"
+    command_topic: "garage-door/cmnd/POWER2"
+    optimistic: true
+    state_template: "{% if (value | int) >= 18 -%}on{% else %}off{%- endif %}"
+    state_topic: "tele/garage/LIGHT"
 
 script:
   toggle_garage_door:
@@ -67,15 +78,3 @@ sensor:
           {% else %}
             Unknown
           {% endif %}
-
-light:
-  - platform: mqtt
-    schema: template
-    name: "Garage Door Light"
-    assumed_state: false
-    command_off_template: "ON"
-    command_on_template: "ON"
-    command_topic: "garage-door/cmnd/POWER2"
-    optimistic: true
-    state_template: "{% if (value | int) >= 18 -%}on{% else %}off{%- endif %}"
-    state_topic: "tele/garage/LIGHT"
