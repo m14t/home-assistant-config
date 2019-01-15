@@ -78,3 +78,20 @@ sensor:
           {% else %}
             Unknown
           {% endif %}
+
+automation:
+  - id: garage_lights_on_when_door_open
+    alias: Garage lights on when door opens
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.garage_door
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: light.garage_door_light
+        state: 'off'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.garage_door_light
