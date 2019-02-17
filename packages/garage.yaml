@@ -91,6 +91,9 @@ automation:
     alias: Garage lights on when door opens
     trigger:
       - platform: state
+        entity_id: binary_sensor.garage_motion_sensor
+        to: 'on'
+      - platform: state
         entity_id: binary_sensor.garage_door
         to: 'on'
     condition:
