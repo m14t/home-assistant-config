@@ -81,6 +81,7 @@ default_view:
     - sensor.hot_tub
     - sensor.speedtest_ping
 
+    - group.ice_pack
     - group.garage
     - group.weather
     - group.openuv
