@@ -45,30 +45,6 @@ alarmdecoder:
       name: Master Bedroom Window
       type: opening
 
-group:
-  alarm:
-    name: Alarm
-    icon: mdi:mdi-security
-    entities:
-      - sensor.alarm_panel_display
-      - alarm_control_panel.alarm_panel
-
-      - binary_sensor.front_door #11
-      - binary_sensor.garage_door #10
-      - binary_sensor.family_slider #12
-      - binary_sensor.left_living_room_window #13
-      - binary_sensor.right_living_room_window #14
-      - binary_sensor.guest_room_window #16
-      - binary_sensor.bathroom_window #18
-      - binary_sensor.office_window #19
-      - binary_sensor.master_bedroom_window #20
-      - binary_sensor.upstairs_motion # 15
-
-      # NOT EXPOSED
-      #- binary_sensor.alarm_box # 8
-      #- alarm_control_panel.service_equipment # 9
-      #- binary_sensor.stairway_smoke # 17
-
 recorder:
   exclude:
     entities:
@@ -85,40 +61,3 @@ automation:
         data:
           code: !secret alarm_master_code
           entity_id: alarm_control_panel.alarm_panel
-  - id: alarm_triggered
-    alias: Notify phones when alarm is triggered
-    trigger:
-      - platform: state
-        entity_id: alarm_control_panel.alarm_panel
-        to: triggered
-    action:
-      - service: notify.all_iphones
-        data:
-          message: "Alarm Triggered"
-          data:
-            push:
-              category: "alarm_triggered"
-
-  - id: iphone_disarm_alarm
-    alias: iPhone Disarm Alarm
-    trigger:
-      platform: event
-      event_type: ios.notification_action_fired
-      event_data:
-        actionName: DISARM
-    action:
-      - service: alarm_control_panel.alarm_disarm
-        data:
-          code: !secret alarm_master_code
-          entity_id: alarm_control_panel.alarm_panel
-
-ios:
-  push:
-    categories:
-      - name: Alarm Triggered
-        identifier: 'alarm_triggered'
-        actions:
-          - identifier: 'DISARM'
-            title: 'Disarm'
-            destructive: yes
-            authenticationRequired: yes

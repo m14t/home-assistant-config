@@ -1,171 +1,36 @@
-apcupsd:
-  host: a722577e-apcupsd
-
-# Enables configuration UI
-config:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
-
-# Discover some devices automatically
-discovery:
-
-# Enables the frontend
-frontend:
-  javascript_version: latest
-
-# Enables support for tracking state changes over time
-history:
-
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Home
-  # Location required to calculate the time the sun rises and sets
   latitude: !secret homeassistant_latitude
   longitude: !secret homeassistant_longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: !secret homeassistant_elevation
-  # metric for Metric, imperial for Imperial
   unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
-  # Customization file
   customize: !include customize.yaml
   packages: !include_dir_named packages/
 
-homekit:
-  entity_config:
-    alarm_control_panel.alarm_panel:
-      code: !secret alarm_master_code
-  filter:
-    exclude_domains:
-      - device_tracker
-      - script
-    exclude_entities:
-      - binary_sensor.bathroom_window
-      - binary_sensor.downstairs_thermostat_fan
-      - binary_sensor.downstairs_thermostat_has_leaf
-      - binary_sensor.downstairs_thermostat_is_locked
-      - binary_sensor.downstairs_thermostat_is_using_emergency_heat
-      - binary_sensor.downstairs_thermostat_online
-      - binary_sensor.family_slider
-      - binary_sensor.front_door
-      - binary_sensor.garage_door
-      - binary_sensor.guest_room_window
-      - binary_sensor.left_living_room_window
-      - binary_sensor.master_bedroom_window
-      - binary_sensor.office_window
-      - binary_sensor.right_living_room_window
-      - binary_sensor.tv
-      - binary_sensor.tv
-      - binary_sensor.upstairs_motion
-      - binary_sensor.upstairs_motion
-      - sensor.battery_level_drive
-      - sensor.battery_level_yard
-      - sensor.downstairs_thermostat_target
-      - sensor.lesley_paiges_iphone_battery_level
-      - sensor.matthews_iphone_battery_level
-      - sensor.mi_flora_battery
-      - sensor.mi_flora_conductivity
-      - sensor.mi_flora_light_intensity
-      - sensor.mi_flora_moisture
-      - sensor.mi_flora_temperature
-      - sensor.ups_battery
-      - sensor.ups_load
-      - switch.tv
-      - switch.tv_wakeonlan
+config:
+
+default_config:
 
 http:
-  api_password: !secret http_api_password
   base_url: !secret http_base_url
-  ip_ban_enabled: true
-  login_attempts_threshold: 5
-  server_port: 443
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
+  server_port: 443
+  #base_url: http://m14t.duckdns.org
+  #server_port: 80
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
 
-# View all events in a logbook
-logbook:
-
-# Enables a map showing the location of tracked devices
-map:
-
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
-  structure:
-    - !secret nest_structure_1
-
-openuv:
-  api_key: !secret openuv_api_key
-
-panel_iframe:
-  sonweb:
-    title: SonWEB
-    icon: mdi:lightbulb-on
-    url: !secret sonweb_url
-
-recorder:
-  db_url: !secret recorder_db_url
-  exclude:
-    entities:
-      - sun.sun
+discovery:
 
 sensor:
-  - platform: apcupsd
-    resources:
-      - bcharge
-      - linev
-      - loadpct
-      - nominv
-      - nompower
-      - numxfers
-      - status
-      - timeleft
-      - tonbatt
-
-  - platform: miflora
-    mac: 'C4:7C:8D:66:5D:E7'
-
-  - platform: speedtest
-    minute:
-      - 0
-      - 10
-      - 20
-      - 30
-      - 40
-      - 50
-    monitored_conditions:
-      - ping
-
-# Track the sun
-sun:
-
-tradfri:
-  host: 192.168.3.44
+  # Weather prediction
+  - platform: yr
 
 # Text to speech
 tts:
-  - platform: google
-
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
-
-# vacuum:
-#   - platform: roomba
-#     host: !secret roomba_host
-#     username: !secret roomba_username
-#     password: !secret roomba_password
+  - platform: google_translate
 
 group: !include groups.yaml
-automation: !include automations.yaml
 script: !include scripts.yaml
-
-zwave:
-  usb_path: /dev/ttyACM0

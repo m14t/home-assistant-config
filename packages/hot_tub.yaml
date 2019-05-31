@@ -18,10 +18,3 @@ automation:
     action:
       service: light.turn_on
       entity_id: light.hot_tub
-
-sensor:
-  - platform: mqtt
-    state_topic: "tele/hot-tub/SENSOR"
-    name: "Hot Tub"
-    unit_of_measurement: "°F"
-    value_template: '{{ value_json.DS18B20.Temperature }}'

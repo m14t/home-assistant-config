@@ -1,44 +1,9 @@
-binary_sensor:
-  - platform: command_line
-    command: "curl -s -N --connect-timeout 1 http://192.168.3.42:8060/query/device-info | sed -ne 's/.*<power-mode>\\(.*\\)<\\/power-mode>.*/\\1/p' || echo -n DisplayOff"
-    device_class: light
-    name: TV
-    payload_on: PowerOn
-    payload_off: DisplayOff
-
-homeassistant:
-  customize:
-    binary_sensor.tv:
-      hidden: true
-    script.tv_power_on:
-      hidden: true
-    switch.tv_wakeonlan:
-      hidden: true
-
-script:
-  tv_power_on:
-    sequence:
-    - service: switch.turn_on
-      data:
-        entity_id: switch.tv_wake_on_lan
-    - service: shell_command.tv_power_on
-
-shell_command:
-  tv_power_off: curl -X POST http://192.168.3.42:8060/keypress/PowerOff
-  tv_power_on: curl -X POST http://192.168.3.42:8060/keypress/PowerOn
-
 switch:
-  - platform: template
+  - platform: command_line
     switches:
-      tv:
-        friendly_name: TV
-        value_template: "{{ is_state('binary_sensor.tv', 'on') }}"
-        turn_on:
-          service: script.tv_power_on
-        turn_off:
-          service: shell_command.tv_power_off
-
-  - platform: wake_on_lan
-    mac_address: 0c:62:a6:50:d4:80
-    name: TV Wake-on-LAN
-    host: "192.168.3.42"
+      den_tv:
+        friendly_name: "TV"
+        command_on: 'curl -X POST http://192.168.3.42:8060/keypress/PowerOn'
+        command_off: 'curl -X POST http://192.168.3.42:8060/keypress/PowerOff'
+        command_state: 'curl -s -N --connect-timeout 1 http://192.168.3.42:8060/query/device-info | sed  -ne "s:^.*<power-mode>PowerOn</power-mode>.*$:ON:p"'
+        value_template: '{{ value == "ON" }}'

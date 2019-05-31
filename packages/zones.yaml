@@ -1,6 +1,0 @@
-zone:
-  - name: Lesley's Work
-    latitude: !secret zones_lesleys_work_latitude
-    longitude: !secret zones_lesleys_work_longitude
-    radius: 300
-    icon: mdi:home-city

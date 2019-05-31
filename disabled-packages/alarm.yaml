@@ -1,0 +1,126 @@
+alarmdecoder:
+  device:
+    type: socket
+    host: 192.168.3.27
+    port: 10000
+  panel_display: On
+  zones:
+    #8:
+    #  name: Alarm Box
+    #  type: opening
+    #9:
+    #  name: Service Equipment
+    #  type: ????
+    10:
+      name: Garage Door
+      type: opening
+    11:
+      name: Front Door
+      type: opening
+    12:
+      name: Family Slider
+      type: opening
+    13:
+      name: Left Living Room Window
+      type: opening
+    14:
+      name: Right Living Room Window
+      type: opening
+    15:
+      name: Upstairs Motion
+      type: motion
+    16:
+      name: Guest Room Window
+      type: opening
+    #17:
+    #  name: Stairway Smoke
+    #  type: smoke
+    18:
+      name: Bathroom Window
+      type: opening
+    19:
+      name: Office Window
+      type: opening
+    20:
+      name: Master Bedroom Window
+      type: opening
+
+group:
+  alarm:
+    name: Alarm
+    icon: mdi:mdi-security
+    entities:
+      - sensor.alarm_panel_display
+      - alarm_control_panel.alarm_panel
+
+      - binary_sensor.front_door #11
+      - binary_sensor.garage_door #10
+      - binary_sensor.family_slider #12
+      - binary_sensor.left_living_room_window #13
+      - binary_sensor.right_living_room_window #14
+      - binary_sensor.guest_room_window #16
+      - binary_sensor.bathroom_window #18
+      - binary_sensor.office_window #19
+      - binary_sensor.master_bedroom_window #20
+      - binary_sensor.upstairs_motion # 15
+
+      # NOT EXPOSED
+      #- binary_sensor.alarm_box # 8
+      #- alarm_control_panel.service_equipment # 9
+      #- binary_sensor.stairway_smoke # 17
+
+recorder:
+  exclude:
+    entities:
+      - sensor.alarm_panel_display
+
+
+automation:
+  - id: alarm_on_at_night
+    alias: Turn alarm on at night
+    trigger:
+      platform: time
+      at: !secret constants_bed_time
+    action:
+      - service: alarm_control_panel.alarm_arm_home
+        data:
+          code: !secret alarm_master_code
+          entity_id: alarm_control_panel.alarm_panel
+  - id: alarm_triggered
+    alias: Notify phones when alarm is triggered
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.alarm_panel
+        to: triggered
+    action:
+      - service: notify.all_iphones
+        data:
+          message: "Alarm Triggered"
+          data:
+            push:
+              category: "alarm_triggered"
+
+  - id: iphone_disarm_alarm
+    alias: iPhone Disarm Alarm
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: DISARM
+    action:
+      - service: alarm_control_panel.alarm_disarm
+        data:
+          code: !secret alarm_master_code
+          entity_id: alarm_control_panel.alarm_panel
+
+ios:
+  push:
+    categories:
+      - name: Alarm Triggered
+        identifier: 'alarm_triggered'
+        actions:
+          - identifier: 'DISARM'
+            title: 'Disarm'
+            destructive: yes
+            authenticationRequired: yes
+

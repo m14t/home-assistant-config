@@ -1,0 +1,27 @@
+automation:
+  - id: lights_on_at_sunset
+    alias: Lights on at Sunset
+    trigger:
+      - platform: sun
+        event: sunset
+    condition:
+        - condition: time
+          before: !secret constants_bed_time
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.rock_lamp
+  
+  - id: lights_off
+    alias: Lights Off
+    trigger:
+      - platform: homeassistant
+        event: start
+      - platform: time
+        at: !secret constants_bed_time
+    action:
+      - service: light.turn_off
+        data:
+          entity_id:
+            - light.rock_lamp

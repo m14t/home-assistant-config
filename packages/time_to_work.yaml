@@ -1,6 +1,0 @@
-sensor:
-  - platform: waze_travel_time
-    region: US
-    name: Time to work
-    origin: zone.home
-    destination: zone.lesley_s_work
