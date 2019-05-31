@@ -1,1 +1,8 @@
+/.HA_VERSION
+/.storage/
+/home-assistant.log
+/home-assistant_v2.db
+/home-assistant_v2.db.*
+/plex.conf
+/sabnzbd.conf
 /secrets.yaml
