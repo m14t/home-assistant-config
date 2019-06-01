@@ -1,0 +1,5 @@
+speedtestdotnet:
+  monitored_conditions:
+    - ping
+  scan_interval:
+    hours: 2
