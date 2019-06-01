@@ -45,6 +45,27 @@ alarmdecoder:
       name: Master Bedroom Window
       type: opening
 
+homeassistant:
+  customize:
+    binary_sensor.front_door:
+      icon: mdi:door
+    binary_sensor.bathroom_window:
+      icon: mdi:window-closed
+    binary_sensor.family_slider:
+      icon: mdi:door
+    binary_sensor.master_bedroom_window:
+      icon: mdi:window-closed
+    binary_sensor.garage_door:
+      icon: mdi:garage
+    binary_sensor.left_living_room_window:
+      icon: mdi:window-closed
+    binary_sensor.right_living_room_window:
+      icon: mdi:window-closed
+    binary_sensor.guest_room_window:
+      icon: mdi:window-closed
+    binary_sensor.office_window:
+      icon: mdi:window-closed
+
 recorder:
   exclude:
     entities:
