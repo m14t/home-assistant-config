@@ -1,0 +1,15 @@
+apcupsd:
+  host: a722577e-apcupsd
+
+sensor:
+  - platform: apcupsd
+    resources:
+      - bcharge
+      - linev
+      - loadpct
+      - nominv
+      - nompower
+      - numxfers
+      - status
+      - timeleft
+      - tonbatt
