@@ -1,0 +1,14 @@
+homekit:
+  filter:
+    include_domains:
+      - cover
+      - light
+      - switch
+    include_entities:
+      - alarm_control_panel.alarm_panel
+      - sensor.hot_tub_ds18b20_temperature
+  entity_config:
+    alarm_control_panel.alarm_panel:
+      code: !secret alarm_master_code
+    cover.garage_door:
+      name: Garage Door
