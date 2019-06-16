@@ -13,6 +13,18 @@ automation:
           entity_id:
             - light.rock_lamp
   
+  - id: lights_off_at_sunrise
+    alias: Lights off at Sunrise
+    trigger:
+      - platform: sun
+        event: sunrise
+        offset: "+01:00:00"
+    action:
+      - service: light.turn_off
+        data:
+          entity_id:
+            - light.rock_lamp
+
   - id: lights_off
     alias: Lights Off
     trigger:
