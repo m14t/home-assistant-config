@@ -5,8 +5,7 @@ VERSION="`cat .HA_VERSION`"
 time docker run \
   --rm \
   -v $PWD:/root/.homeassistant/ \
-  -v $PWD/empty-file:/ssl/fullchain.pem \
-  -v $PWD/empty-file:/ssl/privkey.pem \
+  -v $PWD/check-assets/ssl:/ssl \
   -w /root/.homeassistant/ \
   homeassistant/amd64-homeassistant:$VERSION \
   hass --script check_config

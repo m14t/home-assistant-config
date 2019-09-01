@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: homeassistant/amd64-homeassistant:0.92.2
+      - image: homeassistant/amd64-homeassistant:0.98.1
     steps:
       - checkout
       - run:
@@ -14,6 +14,9 @@ jobs:
       - run:
           name: Remove SSL keys from configuration.yaml
           command: grep -v ssl_ configuration.yaml > configuration.yaml.tmp && mv configuration.yaml.tmp configuration.yaml
+      - run:
+          name: Install HACS dependencies
+          command: for package in `jq --raw-output .requirements[] ./custom_components/hacs/manifest.json`; do pip install $package --target ~/.homeassistant/deps; done
       - run:
           name: Check config
           command: hass --script check_config
