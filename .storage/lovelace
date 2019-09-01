@@ -421,6 +421,12 @@
                                 },
                                 {
                                     "entity": "automation.retropie_powering_down"
+                                },
+                                {
+                                    "entity": "automation.notify_phones_when_alarm_is_triggered"
+                                },
+                                {
+                                    "entity": "automation.iphone_disarm_alarm"
                                 }
                             ],
                             "title": "Automation",
