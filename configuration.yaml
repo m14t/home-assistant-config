@@ -27,6 +27,9 @@ http:
   ip_ban_enabled: true
   login_attempts_threshold: 5
 
+recorder:
+  purge_keep_days: 14
+
 sensor:
   # Weather prediction
   - platform: yr
