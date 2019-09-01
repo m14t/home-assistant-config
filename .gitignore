@@ -6,3 +6,5 @@
 /plex.conf
 /sabnzbd.conf
 /secrets.yaml
+
+__pycache__
