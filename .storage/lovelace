@@ -5,6 +5,10 @@
                 {
                     "type": "module",
                     "url": "/local/community/lovelace-hass-aarlo/hass-aarlo.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/unused-card/unused-card.js"
                 }
             ],
             "title": "Home",
@@ -661,6 +665,9 @@
                             "show_header_toggle": false,
                             "title": "Unused Matt iPhone settings",
                             "type": "entities"
+                        },
+                        {
+                            "type": "custom:unused-card"
                         }
                     ],
                     "title": "Other"
