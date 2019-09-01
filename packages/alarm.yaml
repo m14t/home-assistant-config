@@ -110,6 +110,28 @@ automation:
           code: !secret alarm_master_code
           entity_id: alarm_control_panel.alarm_panel
 
+  - id: arm_alarm_on_departure
+    alias: Arm alarm on Departure
+    trigger:
+      - platform: state
+        entity_id: device_tracker.lesley_paiges_iphone
+        to: away
+      - platform: state
+        entity_id: device_tracker.matts_iphone
+        to: away
+    condition:
+      - condition: state
+        entity_id: device_tracker.lesley_paiges_iphone
+        state: away
+      - condition: state
+        entity_id: device_tracker.matts_iphone
+        state: away
+    action:
+      - service: alarm_control_panel.alarm_arm_away
+        data:
+          code: !secret alarm_master_code
+          entity_id: alarm_control_panel.alarm_panel
+
 ios:
   push:
     categories:

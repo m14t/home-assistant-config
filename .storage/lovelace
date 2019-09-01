@@ -400,6 +400,9 @@
                                     "entity": "automation.turn_alarm_on_at_night"
                                 },
                                 {
+                                    "entity": "automation.arm_alarm_on_departure"
+                                },
+                                {
                                     "entity": "automation.turn_arlo_on_with_the_alarm"
                                 },
                                 {
