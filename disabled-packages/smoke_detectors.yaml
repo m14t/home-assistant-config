@@ -9,3 +9,6 @@ sensor:
         value_template: '{{states.zwave.upstairs_smoke_and_co_detector.attributes.battery_level}}'
         friendly_name: 'Upstairs Smoke/CO Alarm Battery'
         unit_of_measurement: '%'
+
+zwave:
+  usb_path: /dev/ttyACM0
