@@ -4,6 +4,9 @@ default_config:
 
 discovery:
 
+hacs:
+  token: !secret github_token
+
 homeassistant:
   name: Home
   latitude: !secret homeassistant_latitude
