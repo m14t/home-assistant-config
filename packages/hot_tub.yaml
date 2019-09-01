@@ -1,5 +1,14 @@
 automation:
-  - id: hot_tub_lights_off
+  - id: hot_tub_lights_off_at_night
+    alias: Turn off Hot Tub Lights at night
+    trigger:
+      - platform: time
+        at: !secret constants_bed_time
+    action:
+      service: light.turn_off
+      entity_id: light.hot_tub
+
+  - id: hot_tub_lights_sync_off
     alias: Turn off Hot Tub Lights with Rock Lamp
     trigger:
       - platform: state
@@ -9,7 +18,7 @@ automation:
       service: light.turn_off
       entity_id: light.hot_tub
 
-  - id: hot_tub_lights_on
+  - id: hot_tub_lights_sync_on
     alias: Turn on Hot Tub Lights with Rock Lamp
     trigger:
       - platform: state

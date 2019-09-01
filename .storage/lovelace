@@ -405,6 +405,9 @@
                                     "entity": "automation.turn_off_hot_tub_lights_with_rock_lamp"
                                 },
                                 {
+                                    "entity": "automation.turn_off_hot_tub_lights_at_night"
+                                },
+                                {
                                     "entity": "automation.turn_on_hot_tub_lights_with_rock_lamp"
                                 },
                                 {
