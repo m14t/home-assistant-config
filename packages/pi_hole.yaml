@@ -1,8 +1,6 @@
 sensor:
   - platform: pi_hole
     host: !secret pihole_host
-    ssl: true
-    verify_ssl: false
     monitored_conditions:
       - ads_blocked_today
       - ads_percentage_today
