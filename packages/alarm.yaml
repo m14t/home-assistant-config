@@ -90,7 +90,7 @@ automation:
         entity_id: alarm_control_panel.alarm_panel
         to: triggered
     action:
-      - service: notify.mobile_app_matts_iphone
+      - service: notify.all_iphones
         data:
           message: "Alarm Triggered"
           data:
