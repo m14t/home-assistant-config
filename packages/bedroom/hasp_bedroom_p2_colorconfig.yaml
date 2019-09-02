@@ -6,25 +6,25 @@
 automation:
   - alias: hasp_bedroom_p2_ColorConfig
     trigger:
-    - platform: state
-      entity_id: 'binary_sensor.bedroom_connected'
-      to: 'on'
-    - platform: homeassistant
-      event: start
-    - platform: state
-      entity_id: input_number.hasp_bedroom_selectedbackgroundcolor
-    - platform: state
-      entity_id: input_number.hasp_bedroom_unselectedbackgroundcolor
-    - platform: state
-      entity_id: input_number.hasp_bedroom_selectedforegroundcolor
-    - platform: state
-      entity_id: input_number.hasp_bedroom_unselectedforegroundcolor
+      - platform: state
+        entity_id: "binary_sensor.bedroom_connected"
+        to: "on"
+      - platform: homeassistant
+        event: start
+      - platform: state
+        entity_id: input_number.hasp_bedroom_selectedbackgroundcolor
+      - platform: state
+        entity_id: input_number.hasp_bedroom_unselectedbackgroundcolor
+      - platform: state
+        entity_id: input_number.hasp_bedroom_selectedforegroundcolor
+      - platform: state
+        entity_id: input_number.hasp_bedroom_unselectedforegroundcolor
     action:
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/json'
-        payload_template: >-
-          [{%- for i in range(4,8) -%}"p[2].b[{{i}}].pco={{ states.input_number.hasp_bedroom_selectedforegroundcolor.state|int }}",{%- endfor -%}
-          {%- for i in range(4,8) -%}"p[2].b[{{i}}].bco={{ states.input_number.hasp_bedroom_selectedbackgroundcolor.state|int }}",{%- endfor -%}
-          {%- for i in range(4,8) -%}"p[2].b[{{i}}].pco2={{ states.input_number.hasp_bedroom_unselectedforegroundcolor.state|int }}",{%- endfor -%}
-          {%- for i in range(4,8) -%}"p[2].b[{{i}}].bco2={{ states.input_number.hasp_bedroom_unselectedbackgroundcolor.state|int }}"{% if not loop.last %},{% endif %}{%- endfor -%}]
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/json"
+          payload_template: >-
+            [{%- for i in range(4,8) -%}"p[2].b[{{i}}].pco={{ states.input_number.hasp_bedroom_selectedforegroundcolor.state|int }}",{%- endfor -%}
+            {%- for i in range(4,8) -%}"p[2].b[{{i}}].bco={{ states.input_number.hasp_bedroom_selectedbackgroundcolor.state|int }}",{%- endfor -%}
+            {%- for i in range(4,8) -%}"p[2].b[{{i}}].pco2={{ states.input_number.hasp_bedroom_unselectedforegroundcolor.state|int }}",{%- endfor -%}
+            {%- for i in range(4,8) -%}"p[2].b[{{i}}].bco2={{ states.input_number.hasp_bedroom_unselectedbackgroundcolor.state|int }}"{% if not loop.last %},{% endif %}{%- endfor -%}]

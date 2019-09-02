@@ -5,32 +5,32 @@ automation:
   # Display weather details on page 2 when weather updates or on HASP init
   - alias: hasp_bedroom_p2_Weather
     trigger:
-    - platform: state
-      entity_id: sensor.dark_sky_temperature
-    - platform: state
-      entity_id: sensor.dark_sky_summary
-    - platform: state
-      entity_id: 'binary_sensor.bedroom_connected'
-    - platform: homeassistant
-      event: start
+      - platform: state
+        entity_id: sensor.dark_sky_temperature
+      - platform: state
+        entity_id: sensor.dark_sky_summary
+      - platform: state
+        entity_id: "binary_sensor.bedroom_connected"
+      - platform: homeassistant
+        event: start
     condition:
-    - condition: state
-      entity_id: 'binary_sensor.bedroom_connected'
-      state: 'on'
+      - condition: state
+        entity_id: "binary_sensor.bedroom_connected"
+        state: "on"
     action:
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[2].b[6].font'
-        payload: '1'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[2].b[6].txt'
-        payload_template: '"     {{ states("sensor.dark_sky_temperature")|int }}°F\r {{ states("sensor.dark_sky_overnight_low_apparent_temperature_0")|int }}°F | {{ states("sensor.dark_sky_daytime_high_apparent_temperature_0")|int }}°F"'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[2].b[7].font'
-        payload_template: '{% if states("sensor.dark_sky_summary")|length <= 6 -%}3{% elif (states("sensor.dark_sky_summary")|length > 6) and (states("sensor.dark_sky_summary")|length <= 10) %}2{% elif (states("sensor.dark_sky_summary")|length > 10) and (states("sensor.dark_sky_summary")|length <= 15) %}1{% else %}0{%- endif %}'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[2].b[7].txt'
-        payload_template: '"{{states("sensor.dark_sky_summary")|wordwrap(20, wrapstring="\\r")|title}}"'
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[2].b[6].font"
+          payload: "1"
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[2].b[6].txt"
+          payload_template: '"     {{ states("sensor.dark_sky_temperature")|int }}°F\r {{ states("sensor.dark_sky_overnight_low_apparent_temperature_0")|int }}°F | {{ states("sensor.dark_sky_daytime_high_apparent_temperature_0")|int }}°F"'
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[2].b[7].font"
+          payload_template: '{% if states("sensor.dark_sky_summary")|length <= 6 -%}3{% elif (states("sensor.dark_sky_summary")|length > 6) and (states("sensor.dark_sky_summary")|length <= 10) %}2{% elif (states("sensor.dark_sky_summary")|length > 10) and (states("sensor.dark_sky_summary")|length <= 15) %}1{% else %}0{%- endif %}'
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[2].b[7].txt"
+          payload_template: '"{{states("sensor.dark_sky_summary")|wordwrap(20, wrapstring="\\r")|title}}"'

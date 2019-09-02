@@ -3,59 +3,59 @@
 automation:
   - alias: hasp_bedroom_p3_ToggleInit
     trigger:
-    - platform: state
-      entity_id: 'binary_sensor.bedroom_connected'
-      to: 'on'
-    - platform: homeassistant
-      event: start
+      - platform: state
+        entity_id: "binary_sensor.bedroom_connected"
+        to: "on"
+      - platform: homeassistant
+        event: start
     action:
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[3].b[4].font'
-        payload: '0'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[3].b[4].txt'
-        payload: '"Time to work:\r Loading..."'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[3].b[5].font'
-        payload: '0'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[3].b[5].txt'
-        payload: '"  Route:\rLoading..."'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[3].b[6].font'
-        payload: '1'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[3].b[6].txt'
-        payload: '""'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[3].b[7].font'
-        payload: '1'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[3].b[7].txt'
-        payload: '""'
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[3].b[4].font"
+          payload: "0"
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[3].b[4].txt"
+          payload: '"Time to work:\r Loading..."'
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[3].b[5].font"
+          payload: "0"
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[3].b[5].txt"
+          payload: '"  Route:\rLoading..."'
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[3].b[6].font"
+          payload: "1"
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[3].b[6].txt"
+          payload: '""'
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[3].b[7].font"
+          payload: "1"
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[3].b[7].txt"
+          payload: '""'
 
   - alias: hasp_bedroom_p3_time_update
     trigger:
-    - platform: state
-      entity_id: 'sensor.time_to_work'
+      - platform: state
+        entity_id: "sensor.time_to_work"
     action:
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[3].b[4].txt'
-        payload_template: '"Time to work:\r {{ state_attr("sensor.time_to_work", "duration") | int }} minutes"'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[3].b[5].txt'
-        payload_template: '"Route: {{ state_attr("sensor.time_to_work", "route") }}"'
-    - service: mqtt.publish
-      data:
-        topic: 'hasp/bedroom/command/p[3].b[6].txt'
-        payload_template: '"Updated:\r {{ as_timestamp(states.sensor.time_to_work.last_updated) | timestamp_custom("%I:%M") }}"'
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[3].b[4].txt"
+          payload_template: '"Time to work:\r {{ state_attr("sensor.time_to_work", "duration") | int }} minutes"'
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[3].b[5].txt"
+          payload_template: '"Route: {{ state_attr("sensor.time_to_work", "route") }}"'
+      - service: mqtt.publish
+        data:
+          topic: "hasp/bedroom/command/p[3].b[6].txt"
+          payload_template: '"Updated:\r {{ as_timestamp(states.sensor.time_to_work.last_updated) | timestamp_custom("%I:%M") }}"'

@@ -41,7 +41,7 @@ sensor:
     availability_topic: "hasp/bedroom/status"
     payload_available: "ON"
     payload_not_available: "OFF"
-    json_attributes_topic:  "hasp/bedroom/sensor"
+    json_attributes_topic: "hasp/bedroom/sensor"
 
 input_text:
   hasp_bedroom_pagebutton1label:
@@ -114,74 +114,74 @@ group:
     entities:
       - automation.hasp_bedroom_00_firsttimesetup
 automation:
-##############################################################################
-# Run first time setup commands
+  ##############################################################################
+  # Run first time setup commands
   - alias: hasp_bedroom_00_FirstTimeSetup
     trigger: []
     action:
       - service: automation.trigger
         data:
-          entity_id: 'automation.hasp_bedroom_00_automationgroupupdate'
+          entity_id: "automation.hasp_bedroom_00_automationgroupupdate"
       - service: homeassistant.turn_on
         data:
-          entity_id: 'group.bedroom_automations'
+          entity_id: "group.bedroom_automations"
       - service: input_text.set_value
         data:
-          entity_id: 'input_text.hasp_bedroom_pagebutton1label'
-          value: 'Btns'
+          entity_id: "input_text.hasp_bedroom_pagebutton1label"
+          value: "Btns"
       - service: input_text.set_value
         data:
-          entity_id: 'input_text.hasp_bedroom_pagebutton2label'
-          value: 'Stats'
+          entity_id: "input_text.hasp_bedroom_pagebutton2label"
+          value: "Stats"
       - service: input_text.set_value
         data:
-          entity_id: 'input_text.hasp_bedroom_pagebutton3label'
-          value: 'Travel'
+          entity_id: "input_text.hasp_bedroom_pagebutton3label"
+          value: "Travel"
       - service: input_number.set_value
         data:
-          entity_id: 'input_number.hasp_bedroom_pagebutton1page'
+          entity_id: "input_number.hasp_bedroom_pagebutton1page"
           value: 1
       - service: input_number.set_value
         data:
-          entity_id: 'input_number.hasp_bedroom_pagebutton2page'
+          entity_id: "input_number.hasp_bedroom_pagebutton2page"
           value: 2
       - service: input_number.set_value
         data:
-          entity_id: 'input_number.hasp_bedroom_pagebutton3page'
+          entity_id: "input_number.hasp_bedroom_pagebutton3page"
           value: 3
       - service: input_number.set_value
         data:
-          entity_id: 'input_number.hasp_bedroom_activepage'
+          entity_id: "input_number.hasp_bedroom_activepage"
           value: 1
       - service: input_number.set_value
         data:
-          entity_id: 'input_number.hasp_bedroom_selectedforegroundcolor'
+          entity_id: "input_number.hasp_bedroom_selectedforegroundcolor"
           value: 65535
       - service: input_number.set_value
         data:
-          entity_id: 'input_number.hasp_bedroom_selectedbackgroundcolor'
+          entity_id: "input_number.hasp_bedroom_selectedbackgroundcolor"
           value: 422
       - service: input_number.set_value
         data:
-          entity_id: 'input_number.hasp_bedroom_unselectedforegroundcolor'
+          entity_id: "input_number.hasp_bedroom_unselectedforegroundcolor"
           value: 65535
       - service: input_number.set_value
         data:
-          entity_id: 'input_number.hasp_bedroom_unselectedbackgroundcolor'
+          entity_id: "input_number.hasp_bedroom_unselectedbackgroundcolor"
           value: 2956
 
-##############################################################################
-# Set automation group members on start - Thanks @Nightcat!
+  ##############################################################################
+  # Set automation group members on start - Thanks @Nightcat!
   - alias: hasp_bedroom_00_AutomationGroupUpdate
     trigger:
-    - platform: homeassistant
-      event: start
+      - platform: homeassistant
+        event: start
     action:
-    - service: group.set
-      data_template:
-        object_id: "bedroom_automations"
-        entities: >-
-          {%- for item in states.automation if ((item.entity_id | lower).startswith('automation.hasp_bedroom_')) -%}
-          {{ item.entity_id }}
-          {% if not loop.last %}, {% endif %}
-          {%- endfor -%}
+      - service: group.set
+        data_template:
+          object_id: "bedroom_automations"
+          entities: >-
+            {%- for item in states.automation if ((item.entity_id | lower).startswith('automation.hasp_bedroom_')) -%}
+            {{ item.entity_id }}
+            {% if not loop.last %}, {% endif %}
+            {%- endfor -%}
