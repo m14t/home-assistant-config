@@ -33,12 +33,3 @@ input_number:
     max: 65535
     step: 1
     mode: box
-group:
-  bedroom_colors:
-    name: bedroom Colors
-    view: no
-    entities:
-      - input_number.hasp_bedroom_selectedforegroundcolor
-      - input_number.hasp_bedroom_selectedbackgroundcolor
-      - input_number.hasp_bedroom_unselectedforegroundcolor
-      - input_number.hasp_bedroom_unselectedbackgroundcolor

@@ -14,7 +14,7 @@ homeassistant:
 
 light:
   - platform: mqtt
-    name: bedroom Backlight
+    name: Bedroom Backlight
     command_topic: "hasp/bedroom/light/switch"
     state_topic: "hasp/bedroom/light/state"
     brightness_state_topic: "hasp/bedroom/brightness/state"
@@ -25,7 +25,7 @@ light:
 
 binary_sensor:
   - platform: mqtt
-    name: bedroom Connected
+    name: Bedroom Connected
     device_class: connectivity
     state_topic: "hasp/bedroom/status"
     payload_on: "ON"
@@ -36,7 +36,7 @@ binary_sensor:
 
 sensor:
   - platform: mqtt
-    name: bedroom Status
+    name: Bedroom Status
     state_topic: "hasp/bedroom/status"
     availability_topic: "hasp/bedroom/status"
     payload_available: "ON"
@@ -45,63 +45,63 @@ sensor:
 
 input_text:
   hasp_bedroom_pagebutton1label:
-    name: bedroom Page 1 Label
+    name: Bedroom Page 1 Label
     icon: mdi:book-open-page-variant
   hasp_bedroom_pagebutton2label:
-    name: bedroom Page 2 Label
+    name: Bedroom Page 2 Label
     icon: mdi:book-open-page-variant
   hasp_bedroom_pagebutton3label:
-    name: bedroom Page 3 Label
+    name: Bedroom Page 3 Label
     icon: mdi:book-open-page-variant
 
 input_number:
   hasp_bedroom_pagebutton1page:
-    name: bedroom Page 1 Page
+    name: Bedroom Page 1 Page
     icon: mdi:format-list-numbered
     min: 0
     max: 9
     step: 1
   hasp_bedroom_pagebutton2page:
-    name: bedroom Page 2 Page
+    name: Bedroom Page 2 Page
     icon: mdi:format-list-numbered
     min: 0
     max: 9
     step: 1
   hasp_bedroom_pagebutton3page:
-    name: bedroom Page 3 Page
+    name: Bedroom Page 3 Page
     icon: mdi:format-list-numbered
     min: 0
     max: 9
     step: 1
   hasp_bedroom_activepage:
-    name: bedroom Active Page
+    name: Bedroom Active Page
     icon: mdi:format-list-numbered
     min: 0
     max: 9
     step: 1
   hasp_bedroom_alarmcode1:
-    name: bedroom AlarmCode1
+    name: Bedroom AlarmCode1
     icon: mdi:format-list-numbered
     min: -1
     max: 9
     step: 1
     initial: -1
   hasp_bedroom_alarmcode2:
-    name: bedroom AlarmCode2
+    name: Bedroom AlarmCode2
     icon: mdi:format-list-numbered
     min: -1
     max: 9
     step: 1
     initial: -1
   hasp_bedroom_alarmcode3:
-    name: bedroom AlarmCode3
+    name: Bedroom AlarmCode3
     icon: mdi:format-list-numbered
     min: -1
     max: 9
     step: 1
     initial: -1
   hasp_bedroom_alarmcode4:
-    name: bedroom AlarmCode4
+    name: Bedroom AlarmCode4
     icon: mdi:format-list-numbered
     min: -1
     max: 9
@@ -109,33 +109,10 @@ input_number:
     initial: -1
 
 group:
-  bedroom:
-    name: Bedroom Plate
-    view: yes
-    entities:
-      - binary_sensor.bedroom_connected
-      - sensor.bedroom_sensor
-      - light.bedroom_backlight
-      - group.bedroom_pageselect
-      - group.bedroom_colors
-      - group.bedroom_automations
-  bedroom_pageselect:
-    name: bedroom Page Selection
-    view: no
-    entities:
-      - input_number.hasp_bedroom_activepage
-      - input_number.hasp_bedroom_pagebutton1page
-      - input_text.hasp_bedroom_pagebutton1label
-      - input_number.hasp_bedroom_pagebutton2page
-      - input_text.hasp_bedroom_pagebutton2label
-      - input_number.hasp_bedroom_pagebutton3page
-      - input_text.hasp_bedroom_pagebutton3label
   bedroom_automations:
     name: bedroom automations
-    view: no
     entities:
       - automation.hasp_bedroom_00_firsttimesetup
-
 automation:
 ##############################################################################
 # Run first time setup commands

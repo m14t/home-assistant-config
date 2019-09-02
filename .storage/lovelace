@@ -697,6 +697,81 @@
                     "icon": "mdi:lightbulb-on",
                     "panel": true,
                     "title": "TasmoAdmin"
+                },
+                {
+                    "badges": [
+                        "binary_sensor.bedroom_connected"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_number.hasp_bedroom_activepage"
+                                },
+                                {
+                                    "entity": "input_number.hasp_bedroom_pagebutton1page"
+                                },
+                                {
+                                    "entity": "input_text.hasp_bedroom_pagebutton1label"
+                                },
+                                {
+                                    "entity": "input_number.hasp_bedroom_pagebutton2page"
+                                },
+                                {
+                                    "entity": "input_text.hasp_bedroom_pagebutton2label"
+                                },
+                                {
+                                    "entity": "input_number.hasp_bedroom_pagebutton3page"
+                                },
+                                {
+                                    "entity": "input_text.hasp_bedroom_pagebutton3label"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Bedroom Page Selection",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_number.hasp_bedroom_selectedforegroundcolor"
+                                },
+                                {
+                                    "entity": "input_number.hasp_bedroom_selectedbackgroundcolor"
+                                },
+                                {
+                                    "entity": "input_number.hasp_bedroom_unselectedforegroundcolor"
+                                },
+                                {
+                                    "entity": "input_number.hasp_bedroom_unselectedbackgroundcolor"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Bedroom Colors",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.bedroom_backlight"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Light",
+                            "type": "entities"
+                        },
+                        {
+                            "card": {
+                                "title": "Bedroom Automations",
+                                "type": "entities"
+                            },
+                            "group": "group.bedroom_automations",
+                            "type": "custom:group-card"
+                        }
+                    ],
+                    "panel": false,
+                    "path": "bedroom-plate",
+                    "title": "Bedroom Plate"
                 }
             ]
         }
