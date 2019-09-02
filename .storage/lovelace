@@ -4,6 +4,10 @@
             "resources": [
                 {
                     "type": "module",
+                    "url": "/community_plugin/group-card/group-card.js"
+                },
+                {
+                    "type": "module",
                     "url": "/local/community/lovelace-hass-aarlo/hass-aarlo.js"
                 },
                 {
