@@ -463,6 +463,12 @@
                             "entities": [
                                 {
                                     "entity": "sensor.speedtest_ping"
+                                },
+                                {
+                                    "entity": "sensor.speedtest_download"
+                                },
+                                {
+                                    "entity": "sensor.speedtest_upload"
                                 }
                             ],
                             "show_header_toggle": false,
