@@ -1,0 +1,44 @@
+##############################################################################
+# Automations and required components to configure colors on the HASP panel
+#
+# Check out this site for easy color code selection and conversion:
+# https://nodtem66.github.io/nextion-hmi-color-convert/index.html
+
+input_number:
+  hasp_bedroom_selectedforegroundcolor:
+    name: bedroom Selected Foreground Color
+    icon: mdi:palette
+    min: 0
+    max: 65535
+    step: 1
+    mode: box
+  hasp_bedroom_selectedbackgroundcolor:
+    name: bedroom Selected Background Color
+    icon: mdi:palette
+    min: 0
+    max: 65535
+    step: 1
+    mode: box
+  hasp_bedroom_unselectedforegroundcolor:
+    name: bedroom Unselected Foreground Color
+    icon: mdi:palette
+    min: 0
+    max: 65535
+    step: 1
+    mode: box
+  hasp_bedroom_unselectedbackgroundcolor:
+    name: bedroom Unselected Background Color
+    icon: mdi:palette
+    min: 0
+    max: 65535
+    step: 1
+    mode: box
+group:
+  bedroom_colors:
+    name: bedroom Colors
+    view: no
+    entities:
+      - input_number.hasp_bedroom_selectedforegroundcolor
+      - input_number.hasp_bedroom_selectedbackgroundcolor
+      - input_number.hasp_bedroom_unselectedforegroundcolor
+      - input_number.hasp_bedroom_unselectedbackgroundcolor

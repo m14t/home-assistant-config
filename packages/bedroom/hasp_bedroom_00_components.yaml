@@ -1,0 +1,210 @@
+##############################################################################
+# The devices created below are essential to the page control automations
+# and you'll probably want to carry them over to your own configuration
+homeassistant:
+  customize:
+    input_number.hasp_bedroom_alarmcode1:
+      hidden: true
+    input_number.hasp_bedroom_alarmcode2:
+      hidden: true
+    input_number.hasp_bedroom_alarmcode3:
+      hidden: true
+    input_number.hasp_bedroom_alarmcode4:
+      hidden: true
+
+light:
+  - platform: mqtt
+    name: bedroom Backlight
+    command_topic: "hasp/bedroom/light/switch"
+    state_topic: "hasp/bedroom/light/state"
+    brightness_state_topic: "hasp/bedroom/brightness/state"
+    brightness_command_topic: "hasp/bedroom/brightness/set"
+    availability_topic: "hasp/bedroom/status"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+
+binary_sensor:
+  - platform: mqtt
+    name: bedroom Connected
+    device_class: connectivity
+    state_topic: "hasp/bedroom/status"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "hasp/bedroom/status"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+
+sensor:
+  - platform: mqtt
+    name: bedroom Status
+    state_topic: "hasp/bedroom/status"
+    availability_topic: "hasp/bedroom/status"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+    json_attributes_topic:  "hasp/bedroom/sensor"
+
+input_text:
+  hasp_bedroom_pagebutton1label:
+    name: bedroom Page 1 Label
+    icon: mdi:book-open-page-variant
+  hasp_bedroom_pagebutton2label:
+    name: bedroom Page 2 Label
+    icon: mdi:book-open-page-variant
+  hasp_bedroom_pagebutton3label:
+    name: bedroom Page 3 Label
+    icon: mdi:book-open-page-variant
+
+input_number:
+  hasp_bedroom_pagebutton1page:
+    name: bedroom Page 1 Page
+    icon: mdi:format-list-numbered
+    min: 0
+    max: 9
+    step: 1
+  hasp_bedroom_pagebutton2page:
+    name: bedroom Page 2 Page
+    icon: mdi:format-list-numbered
+    min: 0
+    max: 9
+    step: 1
+  hasp_bedroom_pagebutton3page:
+    name: bedroom Page 3 Page
+    icon: mdi:format-list-numbered
+    min: 0
+    max: 9
+    step: 1
+  hasp_bedroom_activepage:
+    name: bedroom Active Page
+    icon: mdi:format-list-numbered
+    min: 0
+    max: 9
+    step: 1
+  hasp_bedroom_alarmcode1:
+    name: bedroom AlarmCode1
+    icon: mdi:format-list-numbered
+    min: -1
+    max: 9
+    step: 1
+    initial: -1
+  hasp_bedroom_alarmcode2:
+    name: bedroom AlarmCode2
+    icon: mdi:format-list-numbered
+    min: -1
+    max: 9
+    step: 1
+    initial: -1
+  hasp_bedroom_alarmcode3:
+    name: bedroom AlarmCode3
+    icon: mdi:format-list-numbered
+    min: -1
+    max: 9
+    step: 1
+    initial: -1
+  hasp_bedroom_alarmcode4:
+    name: bedroom AlarmCode4
+    icon: mdi:format-list-numbered
+    min: -1
+    max: 9
+    step: 1
+    initial: -1
+
+group:
+  bedroom:
+    name: Bedroom Plate
+    view: yes
+    entities:
+      - binary_sensor.bedroom_connected
+      - sensor.bedroom_sensor
+      - light.bedroom_backlight
+      - group.bedroom_pageselect
+      - group.bedroom_colors
+      - group.bedroom_automations
+  bedroom_pageselect:
+    name: bedroom Page Selection
+    view: no
+    entities:
+      - input_number.hasp_bedroom_activepage
+      - input_number.hasp_bedroom_pagebutton1page
+      - input_text.hasp_bedroom_pagebutton1label
+      - input_number.hasp_bedroom_pagebutton2page
+      - input_text.hasp_bedroom_pagebutton2label
+      - input_number.hasp_bedroom_pagebutton3page
+      - input_text.hasp_bedroom_pagebutton3label
+  bedroom_automations:
+    name: bedroom automations
+    view: no
+    entities:
+      - automation.hasp_bedroom_00_firsttimesetup
+
+automation:
+##############################################################################
+# Run first time setup commands
+  - alias: hasp_bedroom_00_FirstTimeSetup
+    trigger: []
+    action:
+      - service: automation.trigger
+        data:
+          entity_id: 'automation.hasp_bedroom_00_automationgroupupdate'
+      - service: homeassistant.turn_on
+        data:
+          entity_id: 'group.bedroom_automations'
+      - service: input_text.set_value
+        data:
+          entity_id: 'input_text.hasp_bedroom_pagebutton1label'
+          value: 'Btns'
+      - service: input_text.set_value
+        data:
+          entity_id: 'input_text.hasp_bedroom_pagebutton2label'
+          value: 'Stats'
+      - service: input_text.set_value
+        data:
+          entity_id: 'input_text.hasp_bedroom_pagebutton3label'
+          value: 'Travel'
+      - service: input_number.set_value
+        data:
+          entity_id: 'input_number.hasp_bedroom_pagebutton1page'
+          value: 1
+      - service: input_number.set_value
+        data:
+          entity_id: 'input_number.hasp_bedroom_pagebutton2page'
+          value: 2
+      - service: input_number.set_value
+        data:
+          entity_id: 'input_number.hasp_bedroom_pagebutton3page'
+          value: 3
+      - service: input_number.set_value
+        data:
+          entity_id: 'input_number.hasp_bedroom_activepage'
+          value: 1
+      - service: input_number.set_value
+        data:
+          entity_id: 'input_number.hasp_bedroom_selectedforegroundcolor'
+          value: 65535
+      - service: input_number.set_value
+        data:
+          entity_id: 'input_number.hasp_bedroom_selectedbackgroundcolor'
+          value: 422
+      - service: input_number.set_value
+        data:
+          entity_id: 'input_number.hasp_bedroom_unselectedforegroundcolor'
+          value: 65535
+      - service: input_number.set_value
+        data:
+          entity_id: 'input_number.hasp_bedroom_unselectedbackgroundcolor'
+          value: 2956
+
+##############################################################################
+# Set automation group members on start - Thanks @Nightcat!
+  - alias: hasp_bedroom_00_AutomationGroupUpdate
+    trigger:
+    - platform: homeassistant
+      event: start
+    action:
+    - service: group.set
+      data_template:
+        object_id: "bedroom_automations"
+        entities: >-
+          {%- for item in states.automation if ((item.entity_id | lower).startswith('automation.hasp_bedroom_')) -%}
+          {{ item.entity_id }}
+          {% if not loop.last %}, {% endif %}
+          {%- endfor -%}
