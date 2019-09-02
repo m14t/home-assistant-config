@@ -681,6 +681,37 @@
                         },
                         {
                             "type": "custom:unused-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "zwave.kitchen_smoke_and_co_detector"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_smoke_and_co_detector_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_smoke_and_co_detector_alarm_type"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_smoke_and_co_detector_alarm_level"
+                                },
+                                {
+                                    "entity": "zwave.upstairs_smoke_and_co_detector"
+                                },
+                                {
+                                    "entity": "sensor.upstairs_smoke_and_co_detector_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.upstairs_smoke_and_co_detector_alarm_type"
+                                },
+                                {
+                                    "entity": "sensor.upstairs_smoke_and_co_detector_alarm_level"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Smoke and Carbon Monoxide Detectors",
+                            "type": "entities"
                         }
                     ],
                     "title": "Other"
