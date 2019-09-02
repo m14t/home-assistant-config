@@ -5,8 +5,8 @@ automation:
   # Set font and text labels for scene buttons on device connection
   - alias: hasp_bedroom_p1_ScenesInit
     trigger:
-    - platform: state
-      entity_id: 'alarm_control_panel.alarm_panel'
+    # - platform: state
+    #   entity_id: 'alarm_control_panel.alarm_panel'
     - platform: state
       entity_id: 'binary_sensor.bedroom_connected'
       to: 'on'
