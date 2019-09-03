@@ -9,3 +9,31 @@ sensor:
         value_template: "{{states.zwave.upstairs_smoke_and_co_detector.attributes.battery_level}}"
         friendly_name: "Upstairs Smoke/CO Alarm Battery"
         unit_of_measurement: "%"
+
+automation:
+  - id: notify_on_low_smoke_detector_battery
+    alias: Notify on low smoke detector battery
+    trigger:
+      platform: time
+      at: "09:00:00"
+    condition:
+      condition: or
+      conditions:
+        - condition: template
+          value_template: '{{ states.zwave.kitchen_smoke_and_co_detector.attributes.battery_level < 30 }}'
+        - condition: template
+          value_template: '{{ states.zwave.upstairs_smoke_and_co_detector.attributes.battery_level < 30 }}'
+    action:
+      - service: notify.all_iphones
+        data:
+          message: "Smoke Detector Low Battery!"
+          data:
+            push:
+              category: "smoke_detector_low_battery"
+
+ios:
+  push:
+    categories:
+      - name: Smoke Detector Low Battery
+        identifier: 'smoke_detector_low_battery'
+        actions: []
