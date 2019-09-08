@@ -132,6 +132,21 @@ automation:
           code: !secret alarm_master_code
           entity_id: alarm_control_panel.alarm_panel
 
+  - id: disarm_alarm_on_arrival
+    alias: Disarm alarm on arrival
+    trigger:
+      - platform: state
+        entity_id: device_tracker.lesley_paiges_iphone
+        to: home
+      - platform: state
+        entity_id: device_tracker.matts_iphone
+        to: home
+    action:
+      - service: alarm_control_panel.alarm_disarm
+        data:
+          code: !secret alarm_master_code
+          entity_id: alarm_control_panel.alarm_panel
+
 ios:
   push:
     categories:
