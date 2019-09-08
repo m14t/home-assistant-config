@@ -1,0 +1,36 @@
+recorder:
+  exclude:
+    entities:
+      - automation.hasp_bedroom_00_automationgroupupdate
+      - automation.hasp_bedroom_00_backlightbysun
+      - automation.hasp_bedroom_00_firsttimesetup
+      - automation.hasp_bedroom_p0_activepagesliderchanged
+      - automation.hasp_bedroom_p0_pagebutton1_text
+      - automation.hasp_bedroom_p0_pagebutton1action
+      - automation.hasp_bedroom_p0_pagebutton2_text
+      - automation.hasp_bedroom_p0_pagebutton2action
+      - automation.hasp_bedroom_p0_pagebutton3_text
+      - automation.hasp_bedroom_p0_pagebutton3action
+      - automation.hasp_bedroom_p0_pagebutton3longpressaction
+      - automation.hasp_bedroom_p0_pagebuttoncolors
+      - automation.hasp_bedroom_p0_panelpagechanged
+      - automation.hasp_bedroom_p0_restoreactivepage
+      - automation.hasp_bedroom_p1_colorconfig
+      - automation.hasp_bedroom_p1_scenebutton4_1
+      - automation.hasp_bedroom_p1_scenebutton4_2
+      - automation.hasp_bedroom_p1_scenebutton5
+      - automation.hasp_bedroom_p1_scenesinit
+      - automation.hasp_bedroom_p2_calendarupdate
+      - automation.hasp_bedroom_p2_clockinit
+      - automation.hasp_bedroom_p2_clockupdate
+      - automation.hasp_bedroom_p2_colorconfig
+      - automation.hasp_bedroom_p2_weather
+      - automation.hasp_bedroom_p3_colorconfig
+      - automation.hasp_bedroom_p3_time_update
+      - automation.hasp_bedroom_p3_toggleinit
+      - automation.hasp_bedroom_p4_colorconfig
+      - automation.hasp_bedroom_p5_colorconfig
+      - automation.hasp_bedroom_p6_colorconfig
+      - automation.hasp_bedroom_p7_colorconfig
+      - automation.hasp_bedroom_p8_colorconfig
+      - automation.hasp_bedroom_p9_colorconfig
