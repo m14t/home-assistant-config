@@ -8,7 +8,7 @@ camera:
 
 alarm_control_panel:
   - platform: aarlo
-    home_mode_name: home
+    home_mode_name: armed
     away_mode_name: armed
     trigger_time: 30
     alarm_volume: 8
@@ -18,6 +18,12 @@ binary_sensor:
     monitored_conditions:
     - motion
     - sound
+
+light:
+  - platform: aarlo
+
+media_player:
+  - platform: aarlo
 
 sensor:
   - platform: aarlo
@@ -39,7 +45,7 @@ automation:
         entity_id: alarm_control_panel.alarm_panel
         to: armed_away
     action:
-      service: alarm_control_panel.alarm_arm_home
+      service: alarm_control_panel.alarm_arm_away
       entity_id: alarm_control_panel.aarlo_hercules
 
   - id: arlo_off_with_alarm
