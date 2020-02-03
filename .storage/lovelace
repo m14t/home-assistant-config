@@ -62,7 +62,7 @@
                         },
                         {
                             "entity": "camera.aarlo_babycam",
-                            "name": "Driveway",
+                            "name": "BabyCam",
                             "show": [
                                 "motion",
                                 "sound",
@@ -101,6 +101,51 @@
                             ],
                             "title": "Baby Cam",
                             "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.baby_room_humidifier_energy_apparentpower"
+                                },
+                                {
+                                    "entity": "sensor.baby_room_humidifier_energy_current"
+                                },
+                                {
+                                    "entity": "sensor.baby_room_humidifier_energy_factor"
+                                },
+                                {
+                                    "entity": "sensor.baby_room_humidifier_energy_power"
+                                },
+                                {
+                                    "entity": "sensor.baby_room_humidifier_energy_reactivepower"
+                                },
+                                {
+                                    "entity": "sensor.baby_room_humidifier_energy_today"
+                                },
+                                {
+                                    "entity": "sensor.baby_room_humidifier_energy_total"
+                                },
+                                {
+                                    "entity": "sensor.baby_room_humidifier_energy_totalstarttime"
+                                },
+                                {
+                                    "entity": "sensor.baby_room_humidifier_energy_voltage"
+                                },
+                                {
+                                    "entity": "sensor.baby_room_humidifier_energy_yesterday"
+                                },
+                                {
+                                    "entity": "sensor.baby_room_humidifier_status"
+                                },
+                                {
+                                    "entity": "switch.baby_room_humidifier"
+                                },
+                                {
+                                    "entity": "binary_sensor.baby_room_humidifier_button1"
+                                }
+                            ],
+                            "title": "Baby Room Humidifier",
+                            "type": "entities"
                         },
                         {
                             "entities": [
@@ -246,6 +291,20 @@
                             "show_header_toggle": false,
                             "title": "Vacuum",
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.baby_room_humidifier_energy_power"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_air_quality_babycam"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "title": "Baby Room Humidifier",
+                            "type": "history-graph"
                         }
                     ],
                     "path": "default_view",
@@ -382,6 +441,65 @@
                                 "image_date"
                             ],
                             "type": "custom:aarlo-glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.cam_1_blue_led"
+                                },
+                                {
+                                    "entity": "cover.cam_1_move_left_right"
+                                },
+                                {
+                                    "entity": "cover.cam_1_move_up_down"
+                                },
+                                {
+                                    "entity": "switch.cam_1_night_mode"
+                                },
+                                {
+                                    "entity": "switch.cam_1_night_mode_auto"
+                                },
+                                {
+                                    "entity": "switch.cam_1_ir_filter"
+                                },
+                                {
+                                    "entity": "switch.cam_1_ir_led"
+                                },
+                                {
+                                    "entity": "switch.cam_1_mjpeg_rtsp_server"
+                                },
+                                {
+                                    "entity": "switch.cam_1_motion_send_mail"
+                                },
+                                {
+                                    "entity": "switch.cam_1_motion_send_telegram"
+                                },
+                                {
+                                    "entity": "switch.cam_1_motion_tracking"
+                                },
+                                {
+                                    "entity": "switch.cam_1_yellow_led"
+                                }
+                            ],
+                            "title": "Wyze Cam (Unused)",
+                            "type": "entities"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.cam_1_motion_snapshot",
+                            "camera_view": "live",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.cam_1_motion_sensor"
+                                },
+                                {
+                                    "entity": "switch.cam_1_h264_rtsp_server"
+                                },
+                                {
+                                    "entity": "switch.cam_1_motion_detection"
+                                }
+                            ],
+                            "type": "picture-glance"
                         }
                     ],
                     "title": "Alarm"
