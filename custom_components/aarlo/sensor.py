@@ -62,6 +62,10 @@ async def async_setup_platform(hass, config, async_add_entities, _discovery_info
                 if doorbell.has_capability(sensor_type):
                     name = '{0} {1}'.format(SENSOR_TYPES[sensor_type][0], doorbell.name)
                     sensors.append(ArloSensor(name, doorbell, sensor_type))
+            for light in arlo.lights:
+                if light.has_capability(sensor_type):
+                    name = '{0} {1}'.format(SENSOR_TYPES[sensor_type][0], light.name)
+                    sensors.append(ArloSensor(name, light, sensor_type))
 
     async_add_entities(sensors, True)
 
@@ -134,6 +138,15 @@ class ArloSensor(Entity):
         attrs['friendly_name'] = self._name
 
         if self._sensor_type != 'total_cameras':
+            attrs['camera_name'] = self._device.name
             attrs['model'] = self._device.model_id
+        if self._sensor_type == 'last_capture':
+            video = self._device.last_video
+            if video is not None:
+                attrs['object_type'] = video.object_type
+                attrs['object_region'] = video.object_region
+                attrs['thumbnail_url'] = video.thumbnail_url
+            else:
+                attrs['object_type'] = None
 
         return attrs
