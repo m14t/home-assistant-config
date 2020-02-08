@@ -556,6 +556,12 @@
                                 },
                                 {
                                     "entity": "automation.iphone_disarm_alarm"
+                                },
+                                {
+                                    "entity": "automation.turn_on_the_t_rex_light_with_the_babycam"
+                                },
+                                {
+                                    "entity": "automation.turn_off_the_t_rex_light_with_the_babycam"
                                 }
                             ],
                             "title": "Automation",
