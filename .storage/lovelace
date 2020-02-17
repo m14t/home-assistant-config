@@ -13,6 +13,10 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/unused-card/unused-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/lovelace-hass-aarlo/hass-aarlo.js"
                 }
             ],
             "title": "Home",
@@ -50,6 +54,9 @@
                                     "entity": "light.t_rex"
                                 },
                                 {
+                                    "entity": "light.aarlo_babycam"
+                                },
+                                {
                                     "entity": "sensor.t_rex_am2301_temperature"
                                 },
                                 {
@@ -62,6 +69,7 @@
                         },
                         {
                             "entity": "camera.aarlo_babycam",
+                            "light": "light.aarlo_babycam",
                             "name": "BabyCam",
                             "show": [
                                 "motion",
