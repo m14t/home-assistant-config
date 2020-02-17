@@ -1,4 +1,34 @@
+climate:
+  - platform: generic_thermostat
+    name: Baby Room Heater
+    heater: switch.baby_room_heat
+    target_sensor: sensor.aarlo_temperature_babycam
+
 automation:
+  - id: baby_heat_sync_off
+    alias: Turn off the Baby Heater with the BabyCam
+    trigger:
+      - platform: state
+        entity_id: light.aarlo_babycam
+        to: "off"
+    action:
+      service: climate.set_hvac_mode
+      data:
+        entity_id: climate.baby_room_heater
+        hvac_mode: "off"
+
+  - id: baby_heat_sync_on
+    alias: Turn on the Baby Heater with the BabyCam
+    trigger:
+      - platform: state
+        entity_id: light.aarlo_babycam
+        to: "on"
+    action:
+      service: climate.set_hvac_mode
+      data:
+        entity_id: climate.baby_room_heater
+        hvac_mode: heat
+
   - id: baby_lights_sync_off
     alias: Turn off the T-Rex Light with the BabyCam
     trigger:

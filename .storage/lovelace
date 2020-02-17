@@ -313,6 +313,10 @@
                             "refresh_interval": 0,
                             "title": "Baby Room Air Quality",
                             "type": "history-graph"
+                        },
+                        {
+                            "entity": "climate.baby_room_heater",
+                            "type": "thermostat"
                         }
                     ],
                     "path": "default_view",
