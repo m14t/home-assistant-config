@@ -105,46 +105,46 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.baby_room_humidifier_energy_apparentpower"
+                                    "entity": "sensor.baby_room_air_purifier_energy_apparentpower"
                                 },
                                 {
-                                    "entity": "sensor.baby_room_humidifier_energy_current"
+                                    "entity": "sensor.baby_room_air_purifier_energy_current"
                                 },
                                 {
-                                    "entity": "sensor.baby_room_humidifier_energy_factor"
+                                    "entity": "sensor.baby_room_air_purifier_energy_factor"
                                 },
                                 {
-                                    "entity": "sensor.baby_room_humidifier_energy_power"
+                                    "entity": "sensor.baby_room_air_purifier_energy_power"
                                 },
                                 {
-                                    "entity": "sensor.baby_room_humidifier_energy_reactivepower"
+                                    "entity": "sensor.baby_room_air_purifier_energy_reactivepower"
                                 },
                                 {
-                                    "entity": "sensor.baby_room_humidifier_energy_today"
+                                    "entity": "sensor.baby_room_air_purifier_energy_today"
                                 },
                                 {
-                                    "entity": "sensor.baby_room_humidifier_energy_total"
+                                    "entity": "sensor.baby_room_air_purifier_energy_total"
                                 },
                                 {
-                                    "entity": "sensor.baby_room_humidifier_energy_totalstarttime"
+                                    "entity": "sensor.baby_room_air_purifier_energy_totalstarttime"
                                 },
                                 {
-                                    "entity": "sensor.baby_room_humidifier_energy_voltage"
+                                    "entity": "sensor.baby_room_air_purifier_energy_voltage"
                                 },
                                 {
-                                    "entity": "sensor.baby_room_humidifier_energy_yesterday"
+                                    "entity": "sensor.baby_room_air_purifier_energy_yesterday"
                                 },
                                 {
-                                    "entity": "sensor.baby_room_humidifier_status"
+                                    "entity": "sensor.baby_room_air_purifier_status"
                                 },
                                 {
-                                    "entity": "switch.baby_room_humidifier"
+                                    "entity": "switch.baby_room_air_purifier"
                                 },
                                 {
-                                    "entity": "binary_sensor.baby_room_humidifier_button1"
+                                    "entity": "binary_sensor.baby_room_air_purifier_button1"
                                 }
                             ],
-                            "title": "Baby Room Humidifier",
+                            "title": "Baby Room Air Purifier",
                             "type": "entities"
                         },
                         {
@@ -295,7 +295,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.baby_room_humidifier_energy_power"
+                                    "entity": "sensor.baby_room_air_purifier_energy_power"
                                 },
                                 {
                                     "entity": "sensor.aarlo_air_quality_babycam"
@@ -303,7 +303,7 @@
                             ],
                             "hours_to_show": 24,
                             "refresh_interval": 0,
-                            "title": "Baby Room Humidifier",
+                            "title": "Baby Room Air Quality",
                             "type": "history-graph"
                         }
                     ],
