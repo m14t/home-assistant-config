@@ -1,24 +1,6 @@
 {
     "data": {
         "config": {
-            "resources": [
-                {
-                    "type": "module",
-                    "url": "/community_plugin/group-card/group-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/community/lovelace-hass-aarlo/hass-aarlo.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/unused-card/unused-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/lovelace-hass-aarlo/hass-aarlo.js"
-                }
-            ],
             "title": "Home",
             "views": [
                 {
