@@ -299,6 +299,16 @@
                         {
                             "entity": "climate.baby_room_heater",
                             "type": "thermostat"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "climate.baby_room_heater"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "type": "history-graph"
                         }
                     ],
                     "path": "default_view",
