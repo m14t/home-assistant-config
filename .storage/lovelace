@@ -95,51 +95,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.baby_room_air_purifier_energy_apparentpower"
-                                },
-                                {
-                                    "entity": "sensor.baby_room_air_purifier_energy_current"
-                                },
-                                {
-                                    "entity": "sensor.baby_room_air_purifier_energy_factor"
-                                },
-                                {
-                                    "entity": "sensor.baby_room_air_purifier_energy_power"
-                                },
-                                {
-                                    "entity": "sensor.baby_room_air_purifier_energy_reactivepower"
-                                },
-                                {
-                                    "entity": "sensor.baby_room_air_purifier_energy_today"
-                                },
-                                {
-                                    "entity": "sensor.baby_room_air_purifier_energy_total"
-                                },
-                                {
-                                    "entity": "sensor.baby_room_air_purifier_energy_totalstarttime"
-                                },
-                                {
-                                    "entity": "sensor.baby_room_air_purifier_energy_voltage"
-                                },
-                                {
-                                    "entity": "sensor.baby_room_air_purifier_energy_yesterday"
-                                },
-                                {
-                                    "entity": "sensor.baby_room_air_purifier_status"
-                                },
-                                {
-                                    "entity": "switch.baby_room_air_purifier"
-                                },
-                                {
-                                    "entity": "binary_sensor.baby_room_air_purifier_button1"
-                                }
-                            ],
-                            "title": "Baby Room Air Purifier",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "light.tradfri_light_7e1b5d5204400044_65539"
                                 },
                                 {
@@ -346,10 +301,6 @@
                             "type": "media-control"
                         },
                         {
-                            "entity": "media_player.den_roku_plex",
-                            "type": "media-control"
-                        },
-                        {
                             "entity": "media_player.apple_tv",
                             "type": "media-control"
                         }
@@ -445,65 +396,6 @@
                                 "image_date"
                             ],
                             "type": "custom:aarlo-glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.cam_1_blue_led"
-                                },
-                                {
-                                    "entity": "cover.cam_1_move_left_right"
-                                },
-                                {
-                                    "entity": "cover.cam_1_move_up_down"
-                                },
-                                {
-                                    "entity": "switch.cam_1_night_mode"
-                                },
-                                {
-                                    "entity": "switch.cam_1_night_mode_auto"
-                                },
-                                {
-                                    "entity": "switch.cam_1_ir_filter"
-                                },
-                                {
-                                    "entity": "switch.cam_1_ir_led"
-                                },
-                                {
-                                    "entity": "switch.cam_1_mjpeg_rtsp_server"
-                                },
-                                {
-                                    "entity": "switch.cam_1_motion_send_mail"
-                                },
-                                {
-                                    "entity": "switch.cam_1_motion_send_telegram"
-                                },
-                                {
-                                    "entity": "switch.cam_1_motion_tracking"
-                                },
-                                {
-                                    "entity": "switch.cam_1_yellow_led"
-                                }
-                            ],
-                            "title": "Wyze Cam (Unused)",
-                            "type": "entities"
-                        },
-                        {
-                            "aspect_ratio": "0%",
-                            "camera_image": "camera.cam_1_motion_snapshot",
-                            "camera_view": "live",
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.cam_1_motion_sensor"
-                                },
-                                {
-                                    "entity": "switch.cam_1_h264_rtsp_server"
-                                },
-                                {
-                                    "entity": "switch.cam_1_motion_detection"
-                                }
-                            ],
-                            "type": "picture-glance"
                         }
                     ],
                     "title": "Alarm"
@@ -764,50 +656,6 @@
                             "type": "entities"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.lesley_iphone_bssid"
-                                },
-                                {
-                                    "entity": "sensor.lesley_iphone_geocoded_location"
-                                },
-                                {
-                                    "entity": "sensor.lesley_iphone_sim_1"
-                                },
-                                {
-                                    "entity": "sensor.lesley_iphone_ssid"
-                                },
-                                {
-                                    "entity": "sensor.lesley_iphone_last_update_trigger"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Unused Lesley iPhone settings",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.matt_iphone_bssid"
-                                },
-                                {
-                                    "entity": "sensor.matt_iphone_geocoded_location"
-                                },
-                                {
-                                    "entity": "sensor.matt_iphone_sim_1"
-                                },
-                                {
-                                    "entity": "sensor.matt_iphone_ssid"
-                                },
-                                {
-                                    "entity": "sensor.matt_iphone_last_update_trigger"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Unused Matt iPhone settings",
-                            "type": "entities"
-                        },
-                        {
                             "type": "custom:unused-card"
                         },
                         {
@@ -840,6 +688,20 @@
                             "show_header_toggle": false,
                             "title": "Smoke and Carbon Monoxide Detectors",
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "device_tracker.matt_iphone",
+                                "sensor.matt_iphone_bssid",
+                                "sensor.matt_iphone_geocoded_location",
+                                "sensor.matt_iphone_last_update_trigger",
+                                "sensor.matt_iphone_sim_1",
+                                "sensor.matt_iphone_sim_2",
+                                "sensor.matt_iphone_ssid",
+                                "sensor.matt_iphone_storage"
+                            ],
+                            "title": "Matt's iPhone (unused)",
+                            "type": "entities"
                         }
                     ],
                     "title": "Other"
@@ -855,82 +717,12 @@
                     ],
                     "icon": "mdi:lightbulb-on",
                     "panel": true,
-                    "title": "TasmoAdmin"
-                },
-                {
-                    "badges": [
-                        "binary_sensor.bedroom_connected"
-                    ],
-                    "cards": [
+                    "title": "TasmoAdmin",
+                    "visible": [
                         {
-                            "entities": [
-                                {
-                                    "entity": "input_number.hasp_bedroom_activepage"
-                                },
-                                {
-                                    "entity": "input_number.hasp_bedroom_pagebutton1page"
-                                },
-                                {
-                                    "entity": "input_text.hasp_bedroom_pagebutton1label"
-                                },
-                                {
-                                    "entity": "input_number.hasp_bedroom_pagebutton2page"
-                                },
-                                {
-                                    "entity": "input_text.hasp_bedroom_pagebutton2label"
-                                },
-                                {
-                                    "entity": "input_number.hasp_bedroom_pagebutton3page"
-                                },
-                                {
-                                    "entity": "input_text.hasp_bedroom_pagebutton3label"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Bedroom Page Selection",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_number.hasp_bedroom_selectedforegroundcolor"
-                                },
-                                {
-                                    "entity": "input_number.hasp_bedroom_selectedbackgroundcolor"
-                                },
-                                {
-                                    "entity": "input_number.hasp_bedroom_unselectedforegroundcolor"
-                                },
-                                {
-                                    "entity": "input_number.hasp_bedroom_unselectedbackgroundcolor"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Bedroom Colors",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "light.bedroom_backlight"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Light",
-                            "type": "entities"
-                        },
-                        {
-                            "card": {
-                                "title": "Bedroom Automations",
-                                "type": "entities"
-                            },
-                            "group": "group.bedroom_automations",
-                            "type": "custom:group-card"
+                            "user": "c6bc50d597e74d6d84723a0416d34f55"
                         }
-                    ],
-                    "panel": false,
-                    "path": "bedroom-plate",
-                    "title": "Bedroom Plate"
+                    ]
                 }
             ]
         }
