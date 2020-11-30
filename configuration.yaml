@@ -15,12 +15,9 @@ homeassistant:
   packages: !include_dir_named packages/
 
 http:
-  base_url: !secret http_base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
   server_port: 443
-  #base_url: http://m14t.duckdns.org
-  #server_port: 80
   ip_ban_enabled: true
   login_attempts_threshold: 5
 
