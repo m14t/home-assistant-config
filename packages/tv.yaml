@@ -1,0 +1,9 @@
+switch:
+  - platform: command_line
+    switches:
+      den_tv:
+        friendly_name: "TV"
+        command_on: 'curl -X POST http://192.168.3.42:8060/keypress/PowerOn'
+        command_off: 'curl -X POST http://192.168.3.42:8060/keypress/PowerOff'
+        command_state: 'curl -s -N --connect-timeout 1 http://192.168.3.42:8060/query/device-info | sed  -ne "s:^.*<power-mode>PowerOn</power-mode>.*$:ON:p"'
+        value_template: '{{ value == "ON" }}'

@@ -1,0 +1,91 @@
+recorder:
+  exclude:
+    entities:
+      - sensor.alarm_panel_display
+
+automation:
+  - id: alarm_on_at_night
+    alias: Turn alarm on at night
+    trigger:
+      platform: time
+      at: !secret constants_bed_time
+    action:
+      - service: alarm_control_panel.alarm_arm_home
+        data:
+          code: !secret alarm_master_code
+          entity_id: alarm_control_panel.alarm_panel
+
+  - id: alarm_triggered
+    alias: Notify phones when alarm is triggered
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.alarm_panel
+        to: triggered
+    action:
+      - service: notify.all_iphones
+        data:
+          message: "Alarm Triggered"
+          data:
+            push:
+              category: "alarm_triggered"
+
+  - id: iphone_disarm_alarm
+    alias: iPhone Disarm Alarm
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: DISARM
+    action:
+      - service: alarm_control_panel.alarm_disarm
+        data:
+          code: !secret alarm_master_code
+          entity_id: alarm_control_panel.alarm_panel
+
+  - id: arm_alarm_on_departure
+    alias: Arm alarm on Departure
+    trigger:
+      - platform: state
+        entity_id: device_tracker.lesley_paiges_iphone
+        to: away
+      - platform: state
+        entity_id: device_tracker.matts_iphone
+        to: away
+    condition:
+      - condition: state
+        entity_id: device_tracker.lesley_paiges_iphone
+        state: away
+      - condition: state
+        entity_id: device_tracker.matts_iphone
+        state: away
+    action:
+      - service: alarm_control_panel.alarm_arm_away
+        data:
+          code: !secret alarm_master_code
+          entity_id: alarm_control_panel.alarm_panel
+
+  - id: disarm_alarm_on_arrival
+    alias: Disarm alarm on arrival
+    trigger:
+      - platform: state
+        entity_id: device_tracker.lesley_paiges_iphone
+        to: home
+      - platform: state
+        entity_id: device_tracker.matts_iphone
+        to: home
+    action:
+      - service: alarm_control_panel.alarm_disarm
+        data:
+          code: !secret alarm_master_code
+          entity_id: alarm_control_panel.alarm_panel
+
+ios:
+  push:
+    categories:
+      - name: Alarm Triggered
+        identifier: 'alarm_triggered'
+        actions:
+          - identifier: 'DISARM'
+            title: 'Disarm'
+            destructive: yes
+            authenticationRequired: yes

@@ -1,0 +1,27 @@
+homekit:
+  filter:
+    include_domains:
+      - camera
+      - cover
+      - light
+      - switch
+    include_entities:
+      - alarm_control_panel.alarm_panel
+      - sensor.hot_tub_ds18b20_temperature
+    exclude_entities:
+      - switch.adguard_filtering
+      - switch.adguard_parental_control
+      - switch.adguard_protection
+      - switch.adguard_safe_browsing
+      - switch.adguard_safe_search
+      - switch.adguard_query_log
+  entity_config:
+    alarm_control_panel.alarm_panel:
+      code: !secret alarm_master_code
+    camera.dafang3:
+      support_audio: true
+      name: Wyze Baby Cam
+      video_codec: copy
+      #audio_codec: copy
+    cover.garage_door:
+      name: Garage Door

@@ -1,0 +1,51 @@
+automation:
+  - id: christmas_lights_on_morning
+    alias: Christmas lights on - Morning
+    trigger:
+      - platform: time
+        at: '06:00:00'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.christmas_bush
+            - light.christmas_tree
+
+  - id: christmas_lights_off_morning
+    alias: Christmas lights off - Morning
+    trigger:
+      - platform: sun
+        event: sunrise
+        offset: '+00:45:00'
+    action:
+      - service: light.turn_off
+        data:
+          entity_id:
+            - light.christmas_bush
+            - light.christmas_tree
+
+
+  - id: christmas_lights_on_evening
+    alias: Christmas lights on - Evening
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: '-00:45:00'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.christmas_bush
+            - light.christmas_tree
+
+  - id: christmas_lights_off_evening
+    alias: Christmas lights off - Evening
+    trigger:
+      - platform: time
+        at: !secret constants_bed_time
+    action:
+      - service: light.turn_off
+        data:
+          entity_id:
+            - light.christmas_bush
+            - light.christmas_tree

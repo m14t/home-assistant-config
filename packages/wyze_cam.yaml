@@ -1,0 +1,4 @@
+camera:
+  - platform: ffmpeg
+    name: DaFang3
+    input: -rtsp_transport tcp -i rtsp://192.168.3.71:8554/unicast

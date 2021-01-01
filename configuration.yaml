@@ -1,0 +1,20 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+homeassistant:
+  customize: !include customize.yaml
+  packages: !include_dir_named packages/
+
+
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  server_port: 443
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+
+# Text to speech
+tts:
+  - platform: google_translate
+    base_url: https://m14t.duckdns.org

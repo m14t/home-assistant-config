@@ -1,0 +1,60 @@
+aarlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
+
+camera:
+  - platform: aarlo
+    ffmpeg_arguments: '-pred 1 -q:v 2'
+
+alarm_control_panel:
+  - platform: aarlo
+    home_mode_name: armed
+    away_mode_name: armed
+    trigger_time: 30
+    alarm_volume: 8
+
+binary_sensor:
+  - platform: aarlo
+    monitored_conditions:
+    - motion
+    - sound
+
+light:
+  - platform: aarlo
+
+media_player:
+  - platform: aarlo
+
+sensor:
+  - platform: aarlo
+    #    monitored_conditions:
+    #- last_capture
+    #- total_cameras
+    #- battery_level
+    #- captured_today
+    #- signal_strength
+
+automation:
+  - id: arlo_on_with_alarm
+    alias: Turn Arlo on with the alarm
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.alarm_panel
+        to: armed_home
+      - platform: state
+        entity_id: alarm_control_panel.alarm_panel
+        to: armed_away
+    action:
+      service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.aarlo_hercules
+
+  - id: arlo_off_with_alarm
+    alias: Turn Arlo off with the alarm
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.alarm_panel
+        to: disarmed
+    action:
+      service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.aarlo_hercules
+

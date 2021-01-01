@@ -1,0 +1,11 @@
+sensor:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    forecast:
+      - 0
+    monitored_conditions:
+      - summary
+      - icon
+      - temperature
+      - apparent_temperature_high
+      - apparent_temperature_low

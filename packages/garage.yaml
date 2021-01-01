@@ -1,0 +1,139 @@
+binary_sensor:
+  - platform: mqtt
+    name: "Garage Door Open"
+    state_topic: "tele/garage-door/open"
+    payload_on: "1"
+    payload_off: "0"
+    device_class: garage_door
+
+  - platform: mqtt
+    name: "Garage Door Closed"
+    state_topic: "tele/garage-door/closed"
+    payload_on: "1"
+    payload_off: "0"
+    device_class: garage_door
+
+  - platform: mqtt
+    name: "Garage Motion Sensor"
+    state_topic: "tele/garage/PIRSENSOR"
+    off_delay: 10
+    device_class: motion
+
+homeassistant:
+  customize:
+    binary_sensor.garage_door_open:
+      hidden: true
+    binary_sensor.garage_door_closed:
+      hidden: true
+    light.garage_door_light:
+      assumed_state: false
+
+light:
+  - platform: mqtt
+    schema: template
+    name: "Garage Door Light"
+    command_off_template: "ON"
+    command_on_template: "ON"
+    command_topic: "garage-door/cmnd/POWER2"
+    optimistic: true
+    state_template: "{% if (value | int) >= 18 -%}on{% else %}off{%- endif %}"
+    state_topic: "tele/garage/LIGHT"
+
+cover:
+  - platform: template
+    covers:
+      garage_door:
+        icon_template: >-
+          {% if is_state('sensor.garage_door', 'Closed') %}
+            mdi:garage
+          {% elif is_state('sensor.garage_door', 'Open') %}
+            mdi:garage-open
+          {% else %}
+            mdi:garage-alert
+          {% endif %}
+        position_template: >-
+          {% if is_state('sensor.garage_door', 'Closed') %}
+            0
+          {% elif is_state('sensor.garage_door', 'Open') %}
+            100
+          {% elif is_state('sensor.garage_door', 'Partial') %}
+            50
+          {% else %}
+            Unknown
+          {% endif %}
+        open_cover:
+          service: script.toggle_garage_door
+        close_cover:
+          service: script.toggle_garage_door
+        stop_cover:
+          service: script.toggle_garage_door
+
+script:
+  toggle_garage_door:
+    alias: Open/Close Garage Door
+    sequence:
+      - service: mqtt.publish
+        data_template:
+          topic: garage-door/cmnd/POWER1
+          payload: "ON"
+
+sensor:
+  - platform: template
+    sensors:
+      garage_door:
+        friendly_name: "Garage Door"
+        icon_template: >-
+          {% if is_state('binary_sensor.garage_door_closed', 'on') and is_state('binary_sensor.garage_door_open', 'off') %}
+            mdi:garage
+          {% elif is_state('binary_sensor.garage_door_closed', 'off') and is_state('binary_sensor.garage_door_open', 'on') %}
+            mdi:garage-open
+          {% elif is_state('binary_sensor.garage_door_closed', 'off') and is_state('binary_sensor.garage_door_open', 'off') %}
+            mdi:garage-alert
+          {% else %}
+            mdi:alert
+          {% endif %}
+        value_template: >-
+          {% if is_state('binary_sensor.garage_door_closed', 'on') and is_state('binary_sensor.garage_door_open', 'off') %}
+            Closed
+          {% elif is_state('binary_sensor.garage_door_closed', 'off') and is_state('binary_sensor.garage_door_open', 'on') %}
+            Open
+          {% elif is_state('binary_sensor.garage_door_closed', 'off') and is_state('binary_sensor.garage_door_open', 'off') %}
+            Partial
+          {% else %}
+            Unknown
+          {% endif %}
+
+automation:
+  - id: garage_lights_on_with_motion
+    alias: Garage lights on with motion
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.garage_door
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: light.garage_door_light
+        state: 'off'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id:
+            - light.garage_door_light
+
+  - id: garage_lights_off_on_no_motion
+    alias: Garage lights off after 10 minutes of no motion
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.garage_motion_sensor
+        to: 'off'
+        for:
+          minutes: 10
+    condition:
+      - condition: state
+        entity_id: light.garage_door_light
+        state: 'on'
+    action:
+        - service: light.turn_off
+          data:
+            entity_id:
+              - light.garage_door_light

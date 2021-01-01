@@ -1,0 +1,6 @@
+notify:
+  - name: all_iphones
+    platform: group
+    services:
+      - service: mobile_app_lesley_paiges_iphone
+      - service: mobile_app_matts_iphone
