@@ -1,0 +1,979 @@
+{
+    "version": 1,
+    "key": "lovelace",
+    "data": {
+        "config": {
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [
+                        "sensor.hot_tub_ds18b20_temperature",
+                        "sensor.skin_type_1_safe_exposure_time",
+                        "sensor.skin_type_2_safe_exposure_time"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "cover.garage_door",
+                                    "name": "Garage Door"
+                                },
+                                {
+                                    "entity": "sensor.garage_door"
+                                },
+                                {
+                                    "entity": "binary_sensor.garage_motion_sensor"
+                                },
+                                {
+                                    "entity": "light.garage_door_light"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Garage",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.lesleys_reading_lamp"
+                                },
+                                {
+                                    "entity": "light.poss_reading_lamp"
+                                },
+                                {
+                                    "entity": "light.office_lamp"
+                                },
+                                {
+                                    "entity": "light.hot_tub"
+                                },
+                                {
+                                    "entity": "light.rock_lamp"
+                                },
+                                {
+                                    "entity": "light.den_lamp"
+                                }
+                            ],
+                            "title": "Light",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.den_tv"
+                                },
+                                {
+                                    "entity": "switch.retropie_power"
+                                }
+                            ],
+                            "title": "Switch",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "vacuum.roomba"
+                                },
+                                {
+                                    "entity": "binary_sensor.roomba_bin_full"
+                                },
+                                {
+                                    "entity": "sensor.roomba_battery_level"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Vacuum",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "person.matt"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_distance"
+                                },
+                                {
+                                    "entity": "device_tracker.matts_iphone"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_activity"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_average_active_pace"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_battery_state"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_connection_type"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_floors_ascended"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_floors_descended"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_steps"
+                                }
+                            ],
+                            "title": "Matt",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "person.lesley"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_distance"
+                                },
+                                {
+                                    "entity": "device_tracker.lesley_paiges_iphone"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_activity"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_average_active_pace"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_battery_state"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_connection_type"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_steps"
+                                }
+                            ],
+                            "title": "Lesley",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "type": "section",
+                                    "label": "Lights"
+                                },
+                                {
+                                    "entity": "light.christmas_bush"
+                                },
+                                {
+                                    "entity": "light.christmas_tree"
+                                },
+                                {
+                                    "type": "section",
+                                    "label": "Automations"
+                                },
+                                {
+                                    "entity": "automation.christmas_lights_off_evening"
+                                },
+                                {
+                                    "entity": "automation.christmas_lights_off_morning"
+                                },
+                                {
+                                    "entity": "automation.christmas_lights_on_evening"
+                                },
+                                {
+                                    "entity": "automation.christmas_lights_on_morning"
+                                },
+                                {
+                                    "type": "section",
+                                    "label": "Status"
+                                },
+                                {
+                                    "entity": "sensor.christmas_bush_status"
+                                },
+                                {
+                                    "entity": "sensor.christmas_tree_status"
+                                }
+                            ],
+                            "type": "entities",
+                            "title": "Christmas"
+                        }
+                    ],
+                    "path": "default_view",
+                    "title": "Home"
+                },
+                {
+                    "title": "Baby Room",
+                    "path": "baby-room",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "picture-entity",
+                            "entity": "camera.dafang3"
+                        },
+                        {
+                            "entity": "camera.aarlo_babycam",
+                            "light": "light.aarlo_babycam",
+                            "name": "BabyCam",
+                            "show": [
+                                "motion",
+                                "sound",
+                                "snapshot",
+                                "battery_level",
+                                "signal_strength",
+                                "captured_today",
+                                "image_date"
+                            ],
+                            "type": "custom:aarlo-glance"
+                        },
+                        {
+                            "entity": "climate.baby_room_heater",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.t_rex"
+                                },
+                                {
+                                    "entity": "light.aarlo_babycam"
+                                },
+                                {
+                                    "entity": "sensor.t_rex_am2301_temperature"
+                                },
+                                {
+                                    "entity": "sensor.t_rex_am2301_humidity"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Baby Room",
+                            "type": "entities"
+                        },
+                        {
+                            "columns": 3,
+                            "entities": [
+                                {
+                                    "entity": "alarm_control_panel.aarlo_babycam"
+                                },
+                                {
+                                    "entity": "camera.aarlo_babycam"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_temperature_babycam"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_air_quality_babycam"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_humidity_babycam"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_signal_strength_babycam"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_battery_level_babycam"
+                                }
+                            ],
+                            "title": "Baby Cam",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.baby_room_air_purifier_energy_power"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_air_quality_babycam"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "title": "Baby Room Air Quality",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "climate.baby_room_heater"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "type": "history-graph"
+                        }
+                    ]
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "media_player.office_display",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.living_room",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.den",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.bedroom",
+                            "type": "media-control"
+                        }
+                    ],
+                    "panel": false,
+                    "title": "Media Players"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "alarm_control_panel.alarm_panel",
+                            "name": "House Alarm",
+                            "states": [
+                                "arm_home",
+                                "arm_away"
+                            ],
+                            "type": "alarm-panel"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.alarm_panel_display"
+                                },
+                                {
+                                    "entity": "binary_sensor.front_door"
+                                },
+                                {
+                                    "entity": "binary_sensor.garage_door"
+                                },
+                                {
+                                    "entity": "binary_sensor.family_slider"
+                                },
+                                {
+                                    "entity": "binary_sensor.left_living_room_window"
+                                },
+                                {
+                                    "entity": "binary_sensor.right_living_room_window"
+                                },
+                                {
+                                    "entity": "binary_sensor.guest_room_window"
+                                },
+                                {
+                                    "entity": "binary_sensor.bathroom_window"
+                                },
+                                {
+                                    "entity": "binary_sensor.master_bedroom_window"
+                                },
+                                {
+                                    "entity": "binary_sensor.office_window"
+                                },
+                                {
+                                    "entity": "binary_sensor.upstairs_motion"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Home Alarm",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "alarm_control_panel.aarlo_hercules",
+                            "name": "Arlo Alarm",
+                            "states": [
+                                "arm_home",
+                                "arm_away"
+                            ],
+                            "type": "alarm-panel"
+                        },
+                        {
+                            "entity": "camera.aarlo_drive",
+                            "name": "Driveway",
+                            "show": [
+                                "motion",
+                                "sound",
+                                "snapshot",
+                                "battery_level",
+                                "signal_strength",
+                                "captured_today",
+                                "image_date"
+                            ],
+                            "type": "custom:aarlo-glance"
+                        },
+                        {
+                            "entity": "camera.aarlo_yard",
+                            "name": "Yard",
+                            "show": [
+                                "motion",
+                                "sound",
+                                "snapshot",
+                                "battery_level",
+                                "signal_strength",
+                                "captured_today",
+                                "image_date"
+                            ],
+                            "type": "custom:aarlo-glance"
+                        }
+                    ],
+                    "title": "Alarm"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.lights_off"
+                                },
+                                {
+                                    "entity": "automation.lights_on_at_sunset"
+                                },
+                                {
+                                    "entity": "automation.lights_off_at_sunrise"
+                                },
+                                {
+                                    "entity": "automation.turn_alarm_on_at_night"
+                                },
+                                {
+                                    "entity": "automation.arm_alarm_on_departure"
+                                },
+                                {
+                                    "entity": "automation.turn_arlo_on_with_the_alarm"
+                                },
+                                {
+                                    "entity": "automation.turn_arlo_off_with_the_alarm"
+                                },
+                                {
+                                    "entity": "automation.turn_off_hot_tub_lights_with_rock_lamp"
+                                },
+                                {
+                                    "entity": "automation.turn_off_hot_tub_lights_at_night"
+                                },
+                                {
+                                    "entity": "automation.turn_on_hot_tub_lights_with_rock_lamp"
+                                },
+                                {
+                                    "entity": "automation.garage_lights_on_with_motion"
+                                },
+                                {
+                                    "entity": "automation.garage_lights_off_after_10_minutes_of_no_motion"
+                                },
+                                {
+                                    "entity": "automation.sonoff_state_on_ha_start_up"
+                                },
+                                {
+                                    "entity": "automation.retropie_powering_down"
+                                },
+                                {
+                                    "entity": "automation.notify_phones_when_alarm_is_triggered"
+                                },
+                                {
+                                    "entity": "automation.iphone_disarm_alarm"
+                                },
+                                {
+                                    "entity": "automation.turn_on_the_t_rex_light_with_the_babycam"
+                                },
+                                {
+                                    "entity": "automation.turn_off_the_t_rex_light_with_the_babycam"
+                                },
+                                {
+                                    "entity": "automation.disarm_alarm_on_arrival"
+                                },
+                                {
+                                    "entity": "automation.notify_on_low_smoke_detector_battery"
+                                },
+                                {
+                                    "entity": "automation.turn_off_the_baby_heater_with_the_babycam"
+                                },
+                                {
+                                    "entity": "automation.turn_on_the_baby_heater_with_the_babycam"
+                                },
+                                {
+                                    "entity": "automation.update_openuv_every_30_minutes_during_the_daytime"
+                                }
+                            ],
+                            "title": "Automation",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.garage_sensor_status"
+                                },
+                                {
+                                    "entity": "sensor.hot_tub_status"
+                                },
+                                {
+                                    "entity": "sensor.retropie_power_status"
+                                },
+                                {
+                                    "entity": "sensor.rock_lamp_status"
+                                },
+                                {
+                                    "entity": "sensor.t_rex_status"
+                                },
+                                {
+                                    "entity": "sensor.baby_room_heat_status"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.speedtest_ping"
+                                },
+                                {
+                                    "entity": "sensor.speedtest_download"
+                                },
+                                {
+                                    "entity": "sensor.speedtest_upload"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "SpeedTest",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.apc_battery_charge"
+                                },
+                                {
+                                    "entity": "sensor.apc_battery_chemistry"
+                                },
+                                {
+                                    "entity": "sensor.apc_battery_date"
+                                },
+                                {
+                                    "entity": "sensor.apc_battery_manuf_date"
+                                },
+                                {
+                                    "entity": "sensor.apc_battery_runtime"
+                                },
+                                {
+                                    "entity": "sensor.apc_battery_voltage"
+                                },
+                                {
+                                    "entity": "sensor.apc_beeper_status"
+                                },
+                                {
+                                    "entity": "sensor.apc_high_voltage_transfer"
+                                },
+                                {
+                                    "entity": "sensor.apc_input_power_sensitivity"
+                                },
+                                {
+                                    "entity": "sensor.apc_input_voltage"
+                                },
+                                {
+                                    "entity": "sensor.apc_load"
+                                },
+                                {
+                                    "entity": "sensor.apc_load_reboot_timer"
+                                },
+                                {
+                                    "entity": "sensor.apc_load_shutdown_timer"
+                                },
+                                {
+                                    "entity": "sensor.apc_low_battery_runtime"
+                                },
+                                {
+                                    "entity": "sensor.apc_low_battery_setpoint"
+                                },
+                                {
+                                    "entity": "sensor.apc_low_voltage_transfer"
+                                },
+                                {
+                                    "entity": "sensor.apc_nominal_battery_voltage"
+                                },
+                                {
+                                    "entity": "sensor.apc_nominal_input_voltage"
+                                },
+                                {
+                                    "entity": "sensor.apc_nominal_real_power"
+                                },
+                                {
+                                    "entity": "sensor.apc_self_test_result"
+                                },
+                                {
+                                    "entity": "sensor.apc_status"
+                                },
+                                {
+                                    "entity": "sensor.apc_status_data"
+                                },
+                                {
+                                    "entity": "sensor.apc_ups_shutdown_delay"
+                                },
+                                {
+                                    "entity": "sensor.apc_voltage_transfer_reason"
+                                },
+                                {
+                                    "entity": "sensor.apc_warning_battery_setpoint"
+                                }
+                            ],
+                            "type": "entities",
+                            "title": "UPS"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "type": "section",
+                                    "label": "Home Assistant"
+                                },
+                                {
+                                    "entity": "sensor.hacs",
+                                    "name": "Community Store"
+                                },
+                                {
+                                    "type": "section",
+                                    "label": "Raspberry Pi"
+                                },
+                                {
+                                    "entity": "binary_sensor.rpi_power_status"
+                                },
+                                {
+                                    "entity": "sensor.cpu_temperature"
+                                },
+                                {
+                                    "entity": "sensor.processor_use_percent"
+                                },
+                                {
+                                    "entity": "sensor.memory_use_percent"
+                                },
+                                {
+                                    "entity": "sensor.disk_use_percent"
+                                },
+                                {
+                                    "entity": "sensor.last_boot"
+                                },
+                                {
+                                    "entity": "sensor.network_in_eth0"
+                                },
+                                {
+                                    "entity": "sensor.network_out_eth0"
+                                },
+                                {
+                                    "entity": "sensor.load_1m"
+                                },
+                                {
+                                    "entity": "sensor.load_5m"
+                                },
+                                {
+                                    "entity": "sensor.load_15m"
+                                }
+                            ],
+                            "title": "Host",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.adguard_average_processing_speed"
+                                },
+                                {
+                                    "entity": "sensor.adguard_dns_queries"
+                                },
+                                {
+                                    "entity": "sensor.adguard_dns_queries_blocked_ratio"
+                                },
+                                {
+                                    "entity": "sensor.adguard_parental_control_blocked"
+                                },
+                                {
+                                    "entity": "sensor.adguard_safe_browsing_blocked"
+                                },
+                                {
+                                    "entity": "sensor.adguard_safe_searches_enforced"
+                                },
+                                {
+                                    "entity": "switch.adguard_filtering"
+                                },
+                                {
+                                    "entity": "switch.adguard_parental_control"
+                                },
+                                {
+                                    "entity": "switch.adguard_protection"
+                                },
+                                {
+                                    "entity": "switch.adguard_safe_browsing"
+                                },
+                                {
+                                    "entity": "switch.adguard_safe_search"
+                                }
+                            ],
+                            "type": "entities",
+                            "title": "AdGuard"
+                        }
+                    ],
+                    "title": "Tech"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.bedroom_remote_control"
+                                },
+                                {
+                                    "entity": "sensor.den_remote_control"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Ikea Remote Battery Levels",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.current_ozone_level"
+                                },
+                                {
+                                    "entity": "sensor.current_uv_index"
+                                },
+                                {
+                                    "entity": "sensor.current_uv_level"
+                                },
+                                {
+                                    "entity": "sensor.skin_type_3_safe_exposure_time"
+                                },
+                                {
+                                    "entity": "sensor.skin_type_4_safe_exposure_time"
+                                },
+                                {
+                                    "entity": "sensor.skin_type_5_safe_exposure_time"
+                                },
+                                {
+                                    "entity": "sensor.skin_type_6_safe_exposure_time"
+                                },
+                                {
+                                    "entity": "sensor.max_uv_index"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Unused UV sesnors",
+                            "type": "entities"
+                        },
+                        {
+                            "type": "custom:unused-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "zwave.kitchen_smoke_and_co_detector"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_smoke_and_co_detector_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_smoke_and_co_detector_alarm_type"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_smoke_and_co_detector_alarm_level"
+                                },
+                                {
+                                    "entity": "zwave.upstairs_smoke_and_co_detector"
+                                },
+                                {
+                                    "entity": "sensor.upstairs_smoke_and_co_detector_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.upstairs_smoke_and_co_detector_alarm_type"
+                                },
+                                {
+                                    "entity": "sensor.upstairs_smoke_and_co_detector_alarm_level"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Smoke and Carbon Monoxide Detectors",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.matts_iphone"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_bssid"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_geocoded_location"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_last_update_trigger"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_sim_1"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_sim_2"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_ssid"
+                                },
+                                {
+                                    "entity": "sensor.matts_iphone_storage"
+                                }
+                            ],
+                            "title": "Matt's iPhone (unused)",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_bssid"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_geocoded_location"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_last_update_trigger"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_sim_1"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_ssid"
+                                },
+                                {
+                                    "entity": "sensor.lesley_paiges_iphone_storage"
+                                }
+                            ],
+                            "title": "Lesley's iPhone (unused)",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.aarlo_total_cameras"
+                                },
+                                {
+                                    "type": "section",
+                                    "label": "Baby Cam"
+                                },
+                                {
+                                    "entity": "binary_sensor.aarlo_motion_babycam"
+                                },
+                                {
+                                    "entity": "binary_sensor.aarlo_sound_babycam"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_captured_today_babycam"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_last_babycam"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_recent_activity_babycam"
+                                },
+                                {
+                                    "entity": "media_player.babycam"
+                                },
+                                {
+                                    "type": "section",
+                                    "label": "Drive"
+                                },
+                                {
+                                    "entity": "binary_sensor.aarlo_motion_drive"
+                                },
+                                {
+                                    "entity": "binary_sensor.aarlo_sound_drive"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_battery_level_drive"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_captured_today_drive"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_last_drive"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_recent_activity_drive"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_signal_strength_drive"
+                                },
+                                {
+                                    "type": "section",
+                                    "label": "Yard"
+                                },
+                                {
+                                    "entity": "binary_sensor.aarlo_motion_yard"
+                                },
+                                {
+                                    "entity": "binary_sensor.aarlo_sound_yard"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_battery_level_yard"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_captured_today_yard"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_last_yard"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_recent_activity_yard"
+                                },
+                                {
+                                    "entity": "sensor.aarlo_signal_strength_yard"
+                                }
+                            ],
+                            "type": "entities",
+                            "title": "Arlo (unused)"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.dark_sky_daytime_high_apparent_temperature_0d"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_icon"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_icon_0d"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_overnight_low_apparent_temperature_0d"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_summary"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_summary_0d"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_temperature"
+                                }
+                            ],
+                            "type": "entities",
+                            "title": "Dark Sky"
+                        }
+                    ],
+                    "title": "Other"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "aspect_ratio": "100%",
+                            "type": "iframe",
+                            "url": "https://m14t.duckdns.org:9541/devices"
+                        }
+                    ],
+                    "icon": "mdi:lightbulb-on",
+                    "panel": true,
+                    "title": "TasmoAdmin",
+                    "visible": [
+                        {
+                            "user": "c6bc50d597e74d6d84723a0416d34f55"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
