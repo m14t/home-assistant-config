@@ -1,3 +1,18 @@
+# Zones:
+#  8: Alarm Box
+#  9: Service Equipment
+# 10: Garage Door
+# 11: Front Door
+# 12: Family Slider
+# 13: Left Living Room Window
+# 14: Right Living Room Window
+# 15: Upstairs Motion
+# 16: Guest Room Window
+# 17: Stairway Smoke
+# 18: Bathroom Window
+# 19: Office Window
+# 20: Master Bedroom Window
+
 recorder:
   exclude:
     entities:
