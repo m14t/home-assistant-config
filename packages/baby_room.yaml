@@ -48,3 +48,30 @@ automation:
     action:
       service: light.turn_on
       entity_id: light.t_rex
+
+  - id: babycam_color_on
+    alias: Turn on the BabyCam light red when turned on
+    trigger:
+      - platform: state
+        entity_id: light.aarlo_babycam
+        to: 'on'
+    action:
+      service: light.turn_on
+      entity_id: light.aarlo_babycam
+      data:
+        color_name: red
+
+  - id: babycam_wakeup_color
+    alias: Turn on the BabyCam light green at 6am
+    trigger:
+      - platform: time
+        at: !secret constants_wake_time
+    condition:
+      - condition: state
+        entity_id: light.aarlo_babycam
+        state: 'on'
+    action:
+      service: light.turn_on
+      entity_id: light.aarlo_babycam
+      data:
+        color_name: green
